@@ -1,6 +1,6 @@
 import json
-from codebleu.codebleu_robust import RobustnessScorer
-from codebleu.codebleu_maintain import MaintainabilityScorer
+from bleu.codebleu_robust import RobustnessScorer
+from bleu.codebleu_maintain import MaintainabilityScorer
 
 
 def evaluate_model_output(dataset_path, predictions_path):

@@ -20,6 +20,6 @@ def jsonl_to_txt(jsonl_file_path, txt_file_path):
 
 
 if __name__ == "__main__":
-    jsonl_file_path = 'HumanEvalPlus-Mini.jsonl'
-    txt_file_path = 'HumanEvalPlus-Mini.txt'
+    jsonl_file_path = 'HumanEvalPlus.jsonl'
+    txt_file_path = 'HumanEvalPlus.txt'
     jsonl_to_txt(jsonl_file_path, txt_file_path)
