@@ -1,47 +1,52 @@
-# 引入模拟的 PyQt5 库
-from simulated_pyqt5 import SimulatedQWidget, SimulatedQPushButton, SimulatedQVBoxLayout, SimulatedQApplication
+import sys
+# 替换为模拟的 PyQt5 库导入
+from mock_pyqt5 import (QApplication, QWidget, QVBoxLayout,
+                        QPushButton, QPainter, QColor, Qt)
 
 
-class CircleWidget(SimulatedQWidget):
+class CircleWidget(QWidget):
     def __init__(self):
         super().__init__()
-        print("圆形区域已初始化，初始颜色为黑色")
-        self.color = "黑色"
+        self.color = QColor(Qt.default)
 
-    def paintEvent(self):
-        print(f"正在绘制圆形，当前颜色为 {self.color}")
+    def paintEvent(self, event):
+        painter = QPainter(self)
+        painter.setRenderHint(QPainter.Antialiasing)
+        painter.setBrush(self.color)
+        size = min(self.width(), self.height())
+        painter.drawEllipse(self.width() // 2 - size // 4,
+                            self.height() // 2 - size // 4,
+                            size // 2, size // 2)
 
     def set_blue(self):
-        self.color = "蓝色"
-        print("变色按钮被执行，圆形已变为蓝色")
-        self.paintEvent()
+        self.color = QColor(Qt.blue)
+        self.update()
 
     def restore_color(self):
-        self.color = "黑色"
-        print("复原按钮被执行，圆形已恢复为黑色")
-        self.paintEvent()
+        self.color = QColor(Qt.default)
+        self.update()
 
 
-class MainWindow(SimulatedQWidget):
+class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
-        print("主窗口已初始化")
         self.circle_widget = CircleWidget()
-        blue_button = SimulatedQPushButton("变蓝")
-        restore_button = SimulatedQPushButton("复原")
-
-        blue_button.clicked.connect(self.circle_widget.set_blue)
-        restore_button.clicked.connect(self.circle_widget.restore_color)
-
-        layout = SimulatedQVBoxLayout()
+        self.blue_button = QPushButton('Make Blue')
+        self.blue_button.clicked.connect(self.circle_widget.set_blue)
+        self.restore_button = QPushButton('Restore Color')
+        self.restore_button.clicked.connect(self.circle_widget.restore_color)
+        self.blue_button.click()
+        self.restore_button.click()
+        layout = QVBoxLayout()
         layout.addWidget(self.circle_widget)
-        layout.addWidget(blue_button)
-        layout.addWidget(restore_button)
+        layout.addWidget(self.blue_button)
+        layout.addWidget(self.restore_button)
+        self.setLayout(layout)
 
 
 if __name__ == "__main__":
-    print("程序开始运行")
-    app = SimulatedQApplication([])
+    app = QApplication(sys.argv)
     window = MainWindow()
+    window.show()
+
     result = app.exec_()
-    print("程序运行结束")
