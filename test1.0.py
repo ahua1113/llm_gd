@@ -14,11 +14,12 @@ class CircleWidget(QWidget):
         blue_button = QPushButton('变蓝')
         blue_button.clicked.connect(self.set_blue)
         layout.addWidget(blue_button)
-        blue_button.click()
 
         restore_button = QPushButton('复原')
         restore_button.clicked.connect(self.restore_color)
         layout.addWidget(restore_button)
+
+        blue_button.click()
         restore_button.click()
 
         self.setLayout(layout)

@@ -37,11 +37,12 @@ class MainWindow(QWidget):
 
         btn_blue = QPushButton('Blue')
         btn_blue.clicked.connect(self.canvas.set_blue)
-        btn_blue.click()
 
         btn_reset = QPushButton('Reset')
         btn_reset.clicked.connect(self.canvas.reset_color)
+
         btn_blue.click()
+        btn_reset.click()
 
         layout.addWidget(btn_blue)
         layout.addWidget(btn_reset)

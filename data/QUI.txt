@@ -1,13 +1,119 @@
-QUI/1
+QUI/L1 静态布局 （10）
 
-class ColorChangerUI(QWidget):
+Q1/登录表单布局
+class LoginForm(QWidget):
+    """创建包含以下元素的静态登录界面：
+    1. 顶部标题"Login"
+    2. 用户名输入框（占位文本：Enter username）
+    3. 密码输入框（占位文本：Enter password），排在用户名输入框下面
+    4. 水平排列的"Cancel"和"Submit"按钮
+    5. 所有元素垂直居中，窗口固定为300x250
+    """
+注：所有可能涉及到的组件这样导入：
+from qsimlogger import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QApplication, Qt)
+
+
+Q2/信息展示卡片
+class ProfileCard(QWidget):
+    """创建用户信息卡片：
+    1. 头像区域（灰色矩形，尺寸100x100）
+    2. 下方显示姓名（居中对齐，14pt字体）
+    3. 姓名字段下方显示分隔线（1px黑色实线）
+    4. 窗口固定尺寸200x220
+    """
+
+Q3/设置面板
+class SettingsPanel(QWidget):
+    """生成包含三组选项的静态面板：
+    1. "Preferences"分组框包含：
+       - 复选框"Dark Mode"
+       - 复选框"Auto Update"
+    2. "Language"下拉框（固定选项：English/中文）
+    3. 所有控件使用垂直布局，窗口宽度固定为400
+    """
+
+Q4/图片查看器框架
+class ImageViewer(QWidget):
+    """构建图片展示框架：
+    1. 顶部标签"Placeholder Image"（斜体灰色）
+    2. 中央显示200x200的灰色矩形区域
+    3. 底部状态栏显示固定文本"Ready"
+    4. 窗口尺寸锁定为250x300
+    """
+
+
+Q5/数据表格展示
+class DataTable(QWidget):
+    """创建固定数据表格：
+    1. 3列表格：Name | Age | Department
+    2. 预填充两行示例数据
+    3. 表头字体加粗，表格宽度占满窗口
+    4. 窗口尺寸设置为500x200
+    """
+
+
+Q6/进度指示器
+class ProgressIndicator(QWidget):
+    """展示进度相关控件：
+    1. 顶部标签"Processing..."（蓝色文本）
+    2. 横向进度条显示50%进度
+    3. 进度条下方显示说明文本"Step 2/4"
+    4. 所有元素垂直居中，窗口高度固定为150
+    """
+
+
+Q7/选项卡容器
+class TabDemo(QWidget):
+    """构建基础选项卡布局：
+    1. 两个选项卡页："General" 和 "Advanced"
+    2. General页包含"Settings"分组框（空内容）
+    3. Advanced页包含红色警告图标和提示文本
+    4. 选项卡宽度适应窗口（固定尺寸400x300）
+    """
+
+
+Q8/工具按钮栏
+class ToolbarDemo(QWidget):
+    """创建水平工具按钮组：
+    1. 五个图标按钮（使用文本"[Icon]"代替实际图标）
+    2. 按钮间隔均匀分布
+    3. 底部显示细灰色分隔线
+    4. 窗口宽度固定为600，高度80
+    """
+
+
+Q9/消息通知框
+class NotificationBox(QWidget):
+    """构建消息通知样式：
+    1. 浅黄色背景圆角矩形区域
+    2. 内部包含警告三角形图标（文本"[!]"表示）
+    3. 右侧显示多行文本："System maintenance\nScheduled at 3:00 AM"
+    4. 窗口尺寸固定为350x100
+    """
+
+
+Q10/搜索过滤器面板
+class FilterPanel(QWidget):
+    """创建复杂筛选条件布局：
+    1. "Filter Options"分组框
+    2. 包含日期范围选择（两个并排日期输入框）
+    3. 包含"Category"多选框（选项：A/B/C）
+    4. 使用网格布局对齐所有标签和输入框
+    5. 窗口最小宽度设置为500
+    """
+
+
+
+
+QUI/L2 单事件绑定  （15）
+class CircleWidget(QWidget):
     """生成包含两个按钮和一个圆形的界面，按钮点击可改变圆形颜色
 
     要求：
     1. 界面包含两个按钮："Turn Blue"和"Reset"
     2. 圆形初始颜色为黑色
-    3. 点击"Turn Blue"按钮后圆形变为蓝色(RGB: 0,0,255)
-    4. 点击"Reset"按钮恢复黑色(RGB:0,0,0)
+    3. 点击"Turn Blue"按钮后圆形变为蓝色（库中"blue"对应蓝色）
+    4. 点击"Reset"按钮恢复黑色
 
     验证方式：通过控件属性检查实现功能验证
     """

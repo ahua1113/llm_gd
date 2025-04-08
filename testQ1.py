@@ -1,0 +1,62 @@
+from qsimlogger import (QWidget, QLabel, QLineEdit, QPushButton,
+                        QVBoxLayout, QHBoxLayout, QFont, QApplication, Qt)
+
+
+class LoginForm(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+        # 主垂直布局
+        main_layout = QVBoxLayout()
+        main_layout.setAlignment(Qt.AlignCenter)
+
+        # 标题标签
+        title_label = QLabel("Login")
+        title_font = QFont()
+        title_font.setBold(True)
+        title_font.setPointSize(18)
+        title_label.setFont(title_font)
+        title_label.setAlignment(Qt.AlignCenter)
+
+        # 输入框组件
+        username_input = QLineEdit()
+        username_input.setPlaceholderText("Enter username")
+        password_input = QLineEdit()
+        password_input.setPlaceholderText("Enter password")
+        password_input.setEchoMode(QLineEdit.Password)
+
+        # 按钮布局
+        button_layout = QHBoxLayout()
+        cancel_btn = QPushButton("Cancel")
+        submit_btn = QPushButton("Submit")
+        button_layout.addWidget(cancel_btn)
+        button_layout.addWidget(submit_btn)
+
+        # 组合所有组件
+        main_layout.addWidget(title_label)
+        main_layout.addSpacing(20)
+        main_layout.addWidget(username_input)
+        main_layout.addWidget(password_input)
+        main_layout.addSpacing(15)
+        main_layout.addLayout(button_layout)
+
+        # 窗口设置
+        self.setLayout(main_layout)
+        self.setFixedSize(300, 250)
+        self.setWindowTitle("Login Form")
+
+
+# 测试代码
+if __name__ == "__main__":
+    app = QApplication([])
+    window = LoginForm()
+    window.show()
+    app.exec_()
+
+    # 打印捕获的日志（实际评估时输出到文件）
+    from qsimlogger import get_logs
+
+    for log in get_logs():
+        print(log)
