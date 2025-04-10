@@ -57,6 +57,13 @@ if __name__ == "__main__":
 
     # 打印捕获的日志（实际评估时输出到文件）
     from qsimlogger import get_logs
+    import os
 
-    for log in get_logs():
-        print(log)
+    current_file = os.path.basename(__file__)
+    try:
+        with open('日志文本结果/' + current_file + '.txt', 'w', encoding='utf-8') as file:
+            for log in get_logs():
+                file.write(log + '\n')
+        print("日志已成功写入 " + current_file + ".txt 文件。")
+    except Exception as e:
+        print(f"写入日志到文件时出现错误: {e}")

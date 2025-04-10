@@ -1,4 +1,4 @@
-QUI/L1 静态布局 （10）
+QUI/L1 静态布局 （20）
 
 Q1/登录表单布局
 class LoginForm(QWidget):
@@ -13,7 +13,17 @@ class LoginForm(QWidget):
 from qsimlogger import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QApplication, Qt)
 
 
-Q2/信息展示卡片
+Q2/字体选择器
+class FontSelectorDemo(QWidget):
+    """创建字体选择界面：
+    1. 顶部标签"选择字体："（左对齐，12pt）
+    2. 下方显示QFontComboBox控件
+    3. 底部显示示例文本"Hello Qt!"（使用选中字体实时预览）
+    4. 窗口固定尺寸300x150
+    """
+
+
+Q3/信息展示卡片
 class ProfileCard(QWidget):
     """创建用户信息卡片：
     1. 头像区域（灰色矩形，尺寸100x100）
@@ -22,7 +32,8 @@ class ProfileCard(QWidget):
     4. 窗口固定尺寸200x220
     """
 
-Q3/设置面板
+
+Q4/设置面板
 class SettingsPanel(QWidget):
     """生成包含三组选项的静态面板：
     1. "Preferences"分组框包含：
@@ -32,7 +43,7 @@ class SettingsPanel(QWidget):
     3. 所有控件使用垂直布局，窗口宽度固定为400
     """
 
-Q4/图片查看器框架
+Q5/图片查看器框架
 class ImageViewer(QWidget):
     """构建图片展示框架：
     1. 顶部标签"Placeholder Image"（斜体灰色）
@@ -42,7 +53,7 @@ class ImageViewer(QWidget):
     """
 
 
-Q5/数据表格展示
+Q6/数据表格展示
 class DataTable(QWidget):
     """创建固定数据表格：
     1. 3列表格：Name | Age | Department
@@ -52,7 +63,7 @@ class DataTable(QWidget):
     """
 
 
-Q6/进度指示器
+Q7/进度指示器
 class ProgressIndicator(QWidget):
     """展示进度相关控件：
     1. 顶部标签"Processing..."（蓝色文本）
@@ -62,7 +73,7 @@ class ProgressIndicator(QWidget):
     """
 
 
-Q7/选项卡容器
+Q8/选项卡容器
 class TabDemo(QWidget):
     """构建基础选项卡布局：
     1. 两个选项卡页："General" 和 "Advanced"
@@ -72,7 +83,7 @@ class TabDemo(QWidget):
     """
 
 
-Q8/工具按钮栏
+Q9/工具按钮栏
 class ToolbarDemo(QWidget):
     """创建水平工具按钮组：
     1. 五个图标按钮（使用文本"[Icon]"代替实际图标）
@@ -82,7 +93,7 @@ class ToolbarDemo(QWidget):
     """
 
 
-Q9/消息通知框
+Q10/消息通知框
 class NotificationBox(QWidget):
     """构建消息通知样式：
     1. 浅黄色背景圆角矩形区域
@@ -92,7 +103,7 @@ class NotificationBox(QWidget):
     """
 
 
-Q10/搜索过滤器面板
+Q11/搜索过滤器面板
 class FilterPanel(QWidget):
     """创建复杂筛选条件布局：
     1. "Filter Options"分组框
@@ -103,9 +114,110 @@ class FilterPanel(QWidget):
     """
 
 
+Q12/数值输入面板
+class NumberInputDemo(QWidget):
+    """创建数值输入界面：
+    1. 使用QSpinBox和QSlider组合控制数值（范围0-100）
+    2. 左侧显示"Value:"标签
+    3. 滑动条与数字输入框水平对齐
+    4. 窗口固定尺寸300x100
+    """
 
 
-QUI/L2 单事件绑定  （15）
+Q13/单选按钮组
+class RadioGroupDemo(QWidget):
+    """构建性别选择组件：
+    1. "Gender"分组框包含三个单选按钮：Male/Female/Other
+    2. 单选按钮垂直排列
+    3. 默认选中Male
+    4. 窗口宽度固定为200
+    """
+
+
+### Q14/颜色选择器布局
+class ColorPickerDemo(QWidget):
+    """创建基础颜色选择器：
+    1. 三个QSlider分别控制RGB数值
+    2. 每个滑动条左侧显示颜色通道标签
+    3. 右侧显示当前颜色预览方块（QFrame）
+    4. 窗口固定尺寸400x200
+    """
+
+
+Q15/列表选择器
+class ListSelectorDemo(QWidget):
+    """构建双列列表选择器：
+    1. 左侧QListWidget显示可选项目（示例：Item 1-5）
+    2. 右侧QListWidget显示已选项目
+    3. 中间垂直排列"Add>>"和"<<Remove"按钮
+    4. 窗口固定尺寸500x300
+    """
+
+
+Q16/树形结构展示
+class TreeStructureDemo(QWidget):
+    """创建文件树状结构：
+    1. QTreeWidget展示三级结构：Root > Folder > File
+    2. 预填充示例数据（至少3个分支）
+    3. 显示复选框和展开/折叠图标
+    4. 窗口固定尺寸350x400
+    """
+
+
+Q17/日历组件布局
+class CalendarDemo(QWidget):
+    """构建日历展示界面：
+    1. 顶部显示QCalendarWidget（显示当前月）
+    2. 下方显示日期选择控件QDateEdit
+    3. 使用垂直布局间隔10px
+    4. 窗口固定尺寸400x350
+    """
+
+
+Q18/滚动区域示例
+class ScrollAreaDemo(QWidget):
+    """创建可滚动内容区域：
+    1. QScrollArea包含20个带序号的QLabel
+    2. 每个标签高度固定40px
+    3. 主窗口固定尺寸300x250
+    4. 显示垂直滚动条
+    """
+
+
+Q19/分屏界面布局
+class SplitViewDemo(QWidget):
+    """创建分割视图：
+    1. 使用QSplitter水平分割两个QTextEdit
+    2. 左侧默认显示"Left Panel"文本
+    3. 右侧默认显示"Right Panel"文本
+    4. 窗口固定尺寸600x400
+    """
+
+
+Q20/数字仪表盘
+class DigitalDashboard(QWidget):
+    """构建仪表显示组件：
+    1. 使用QLCDNumber显示数字12345
+    2. 下方显示QDial旋钮控件
+    3. 所有元素垂直居中
+    4. 窗口固定尺寸200x250
+    """
+
+
+Q21/多格式输入表单
+class ComplexFormDemo(QWidget):
+    """创建混合输入表单：
+    1. 包含QLineEdit（姓名）、QComboBox（国家）、QTextEdit（备注）
+    2. 使用网格布局对齐所有标签和输入框
+    3. 国家下拉框包含3个示例选项
+    4. 窗口固定尺寸450x300
+    """
+
+
+
+
+QUI/L2 单事件绑定  （20）
+Q21/颜色切换器
 class CircleWidget(QWidget):
     """生成包含两个按钮和一个圆形的界面，按钮点击可改变圆形颜色
 
@@ -116,4 +228,18 @@ class CircleWidget(QWidget):
     4. 点击"Reset"按钮恢复黑色
 
     验证方式：通过控件属性检查实现功能验证
+    """
+
+
+QUI/L3 动态状态 + 条件渲染   （20）
+Q41/计数器系统
+class CounterWidget(QWidget):
+    """实现带加减控制的计数器
+
+    要求：
+    1. 显示当前数值（初始0）
+    2. "+"按钮每次增加1
+    3. "-"按钮每次减少1
+    4. 数值超过10显示红色，低于0显示绿色
+    5. 包含"Reset"按钮归零
     """
