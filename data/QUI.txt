@@ -1,4 +1,4 @@
-QUI/L1 静态布局 （20）
+QUI/L1 静态布局 （21）
 
 Q1/登录表单布局
 class LoginForm(QWidget):
@@ -10,7 +10,8 @@ class LoginForm(QWidget):
     5. 所有元素垂直居中，窗口固定为300x250
     """
 注：所有可能涉及到的组件这样导入：
-from qsimlogger import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QApplication, Qt)
+from qsimlogger import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt)
+用 "if __name__ == '__main__':" 启动界面
 
 
 Q2/字体选择器
@@ -21,6 +22,10 @@ class FontSelectorDemo(QWidget):
     3. 底部显示示例文本"Hello Qt!"（使用选中字体实时预览）
     4. 窗口固定尺寸300x150
     """
+注：所有可能涉及到的组件这样导入：
+from qsimlogger import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt)
+用 "if __name__ == '__main__':" 启动界面
+
 
 
 Q3/信息展示卡片
@@ -42,6 +47,7 @@ class SettingsPanel(QWidget):
     2. "Language"下拉框（固定选项：English/中文）
     3. 所有控件使用垂直布局，窗口宽度固定为400
     """
+
 
 Q5/图片查看器框架
 class ImageViewer(QWidget):
@@ -134,7 +140,7 @@ class RadioGroupDemo(QWidget):
     """
 
 
-### Q14/颜色选择器布局
+Q14/颜色选择器布局
 class ColorPickerDemo(QWidget):
     """创建基础颜色选择器：
     1. 三个QSlider分别控制RGB数值
@@ -217,7 +223,7 @@ class ComplexFormDemo(QWidget):
 
 
 QUI/L2 单事件绑定  （20）
-Q21/颜色切换器
+Q22/颜色切换器
 class CircleWidget(QWidget):
     """生成包含两个按钮和一个圆形的界面，按钮点击可改变圆形颜色
 

@@ -30,8 +30,8 @@ def text_cosine_similarity(file_path1, file_path2):
 
 
 # 示例文件路径
-file_path1 = '日志文本结果/testQ1.py.txt'
-file_path2 = '日志文本结果/testQ1-doubao.py.txt'
+file_path1 = '日志文本结果/testQ2-yuanbao1.py.txt'
+file_path2 = '日志文本结果/testQ2-doubao1.py.txt'
 # 计算相似度
 similarity = text_cosine_similarity(file_path1, file_path2)
 if similarity is not None:

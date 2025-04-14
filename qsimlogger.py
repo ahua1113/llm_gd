@@ -70,7 +70,15 @@ class QSimLabel(QSimWidget):
         self.log_event("FONT_SET", font.get_properties())
 
     def setAlignment(self, alignment):
-        self.log_event("ALIGNMENT_SET", str(alignment))
+        # 添加对齐值的转换
+        alignment_map = {
+            Qt.AlignLeft: "Left",
+            Qt.AlignRight: "Right",
+            Qt.AlignCenter: "Center",
+            Qt.AlignHCenter: "HCenter",
+            Qt.AlignVCenter: "VCenter"
+        }
+        self.log_event("ALIGNMENT_SET", alignment_map.get(alignment, str(alignment)))
 
 
 class QSimLineEdit(QSimWidget):
@@ -104,7 +112,7 @@ class QSimLayout:
     def __init__(self):
         self._parent = None
         self._parent_layout = None  # 新增：记录父布局
-        self._layout_index = 0      # 新增：在父布局中的索引
+        self._layout_index = 0  # 新增：在父布局中的索引
         self._children = []
         self.log_event("LAYOUT_CREATED", self.__class__.__name__)  # 调用自身方法
 
@@ -164,8 +172,23 @@ class QSimHBoxLayout(QSimLayout): pass
 
 
 class QSimFont:
-    def __init__(self):
-        self._props = {}
+    def __init__(self, font_family='', font_size=12):
+        """模拟Qt的字体对象构造函数
+        :param font_family: 字体名称（如'Arial'）
+        :param font_size: 字号（整数）
+        """
+        self._props = {
+            'family': font_family,
+            'size': font_size,
+            'bold': False,
+            'italic': False
+        }
+
+    def setFamily(self, name):
+        self._props['family'] = name
+
+    def pointSize(self):
+        return self._props['size']
 
     def setBold(self, bold):
         self._props['bold'] = bold
@@ -175,6 +198,39 @@ class QSimFont:
 
     def get_properties(self):
         return f"Font(bold={self._props.get('bold', False)}, size={self._props.get('size', 12)})"
+
+
+# 添加信号基类
+class QSimSignal:
+    def __init__(self):
+        self._handlers = []
+
+    def connect(self, handler):
+        self._handlers.append(handler)
+
+    def emit(self, *args):
+        for handler in self._handlers:
+            handler(*args)
+
+
+class QSimFontComboBox(QSimWidget):
+    def __init__(self):
+        super().__init__()
+        self._current_font = QSimFont()
+        self.currentFontChanged = QSimSignal()  # 初始化信号对象
+        self.log_event("FONTCOMBOBOX_CREATED")
+
+    def setCurrentFont(self, font):
+        prev_props = self._current_font.get_properties()
+        new_props = font.get_properties()
+
+        if prev_props != new_props:
+            self._current_font = font
+            self.log_event("FONTCOMBOBOX_SET_FONT", new_props)
+            self.currentFontChanged.emit(font)  # 触发信号
+
+    def currentFont(self):
+        return self._current_font
 
 
 class QSimApplication:
@@ -198,7 +254,16 @@ class QSimApplication:
         return 0
 
 
-Qt = type('Qt', (), {'AlignCenter': 'AlignCenter'})
+class Qt:
+    AlignLeft = 'AlignLeft'
+    AlignRight = 'AlignRight'
+    AlignHCenter = 'AlignHCenter'
+    AlignTop = 'AlignTop'
+    AlignBottom = 'AlignBottom'
+    AlignVCenter = 'AlignVCenter'
+    AlignCenter = 'AlignCenter'
+
+
 QWidget = QSimWidget
 QLabel = QSimLabel
 QLineEdit = QSimLineEdit
@@ -207,6 +272,7 @@ QVBoxLayout = QSimVBoxLayout
 QHBoxLayout = QSimHBoxLayout
 QFont = QSimFont
 QApplication = QSimApplication
+QFontComboBox = QSimFontComboBox
 
 
 def get_logs():
