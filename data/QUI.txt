@@ -10,7 +10,7 @@ class LoginForm(QWidget):
     5. 所有元素垂直居中，窗口固定为300x250
     """
 注：所有可能涉及到的组件这样导入：
-from qsimlogger import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt)
+from qsimlogger import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor)
 用 "if __name__ == '__main__':" 启动界面
 
 
@@ -23,9 +23,8 @@ class FontSelectorDemo(QWidget):
     4. 窗口固定尺寸300x150
     """
 注：所有可能涉及到的组件这样导入：
-from qsimlogger import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt)
+from qsimlogger import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor)
 用 "if __name__ == '__main__':" 启动界面
-
 
 
 Q3/信息展示卡片
@@ -36,6 +35,9 @@ class ProfileCard(QWidget):
     3. 姓名字段下方显示分隔线（1px黑色实线）
     4. 窗口固定尺寸200x220
     """
+注：所有可能涉及到的组件这样导入：
+from qsimlogger import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor)
+用 "if __name__ == '__main__':" 启动界面
 
 
 Q4/设置面板
@@ -47,6 +49,9 @@ class SettingsPanel(QWidget):
     2. "Language"下拉框（固定选项：English/中文）
     3. 所有控件使用垂直布局，窗口宽度固定为400
     """
+注：所有可能涉及到的组件这样导入：
+from qsimlogger import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor, QGroupBox, QCheckBox, QComboBox)
+用 "if __name__ == '__main__':" 启动界面
 
 
 Q5/图片查看器框架
@@ -57,7 +62,9 @@ class ImageViewer(QWidget):
     3. 底部状态栏显示固定文本"Ready"
     4. 窗口尺寸锁定为250x300
     """
-
+注：所有可能涉及到的组件这样导入：
+from qsimlogger import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor, QGroupBox, QCheckBox, QComboBox, QStatusBar)
+用 "if __name__ == '__main__':" 启动界面
 
 Q6/数据表格展示
 class DataTable(QWidget):
@@ -235,6 +242,8 @@ class CircleWidget(QWidget):
 
     验证方式：通过控件属性检查实现功能验证
     """
+
+
 
 
 QUI/L3 动态状态 + 条件渲染   （20）

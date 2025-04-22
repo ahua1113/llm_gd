@@ -12,6 +12,26 @@ class QSimWidget:
         self._layout_index = 0  # 在父布局中的索引
         self.log_event("WIDGET_CREATED", self.__class__.__name__)
 
+    def setFixedHeight(self, h):
+        self._properties['fixed_height'] = h
+        self.log_event("SET_FIXED_HEIGHT", h)
+
+    def setFixedWidth(self, w):
+        self._properties['fixed_width'] = w
+        self.log_event("SET_FIXED_WIDTH", w)
+
+    def setMinimumWidth(self, w):
+        self._properties['min_width'] = w
+        self.log_event("SET_MIN_WIDTH", w)
+
+    def setMaximumWidth(self, w):
+        self._properties['max_width'] = w
+        self.log_event("SET_MAX_WIDTH", w)
+
+    def setFixedSize(self, w, h):
+        self._properties['size'] = (w, h)
+        self.log_event("SET_SIZE", w, h)
+
     def setLayout(self, layout):
         self._layout = layout
         self.log_event("SET_LAYOUT", layout.__class__.__name__)
@@ -44,10 +64,6 @@ class QSimWidget:
                 current = getattr(current, '_parent', None)
         return path
 
-    def setFixedSize(self, w, h):
-        self._properties['size'] = (w, h)
-        self.log_event("SET_SIZE", w, h)
-
     def setWindowTitle(self, title):
         self._properties['title'] = title
         self.log_event("SET_TITLE", title)
@@ -55,11 +71,16 @@ class QSimWidget:
     def show(self):
         self.log_event("WINDOW_SHOW")
 
+    def setStyleSheet(self, style):
+        self._properties['style'] = style
+        self.log_event("STYLESHEET_SET", style)
+
 
 class QSimLabel(QSimWidget):
-    def __init__(self, text=""):
-        super().__init__()
+    def __init__(self, text="", parent=None):
+        super().__init__(parent=parent)  # 传递给父类
         self._text = text
+        self._font = QSimFont()  # 初始化默认字体对象
         self.log_event("LABEL_CREATED", text)
 
     def setText(self, text):
@@ -68,6 +89,10 @@ class QSimLabel(QSimWidget):
 
     def setFont(self, font):
         self.log_event("FONT_SET", font.get_properties())
+
+    def setPixmap(self, pixmap):
+        color_info = f"{pixmap.color.r},{pixmap.color.g},{pixmap.color.b}" if pixmap.color else "None"
+        self.log_event("PIXMAP_SET", f"Size({pixmap.width}x{pixmap.height})", f"Color({color_info})")
 
     def setAlignment(self, alignment):
         # 添加对齐值的转换
@@ -79,6 +104,11 @@ class QSimLabel(QSimWidget):
             Qt.AlignVCenter: "VCenter"
         }
         self.log_event("ALIGNMENT_SET", alignment_map.get(alignment, str(alignment)))
+
+    # 返回当前字体对象
+    def font(self):
+        """ 返回当前字体对象 """
+        return self._font  # 返回已关联的字体对象
 
 
 class QSimLineEdit(QSimWidget):
@@ -109,10 +139,10 @@ class QSimPushButton(QSimWidget):
 
 
 class QSimLayout:
-    def __init__(self):
-        self._parent = None
-        self._parent_layout = None  # 新增：记录父布局
-        self._layout_index = 0  # 新增：在父布局中的索引
+    def __init__(self, parent=None):
+        self._parent = parent  # 保存父组件引用
+        self._parent_layout = None  # 记录父布局
+        self._layout_index = 0  # 在父布局中的索引
         self._children = []
         self.log_event("LAYOUT_CREATED", self.__class__.__name__)  # 调用自身方法
 
@@ -140,11 +170,25 @@ class QSimLayout:
                 current = getattr(current, '_parent', None)
         return path
 
-    def addWidget(self, widget):
+    def addWidget(self, widget, alignment=None):
         widget._parent_layout = self  # 设置子组件的父布局
         widget._layout_index = len(self._children)
         self._children.append(widget)
         self.log_event("ADD_WIDGET", widget.__class__.__name__)
+
+        # 对齐参数处理
+        if alignment is not None:
+            alignment_map = {
+                Qt.AlignLeft: "Left",
+                Qt.AlignRight: "Right",
+                Qt.AlignCenter: "Center",
+                Qt.AlignHCenter: "HCenter",
+                Qt.AlignVCenter: "VCenter"
+            }
+            aligned_str = alignment_map.get(alignment, str(alignment))
+            self.log_event("ADD_WIDGET_ALIGNMENT", widget.__class__.__name__, aligned_str)
+        else:
+            self.log_event("ADD_WIDGET", widget.__class__.__name__)
 
     def addLayout(self, layout):
         layout._parent_layout = self  # 设置子布局的父布局
@@ -164,11 +208,29 @@ class QSimLayout:
     def setSpacing(self, space):
         self.log_event("SET_SPACING", space)
 
+    def addStretch(self, stretch_factor=0):
+        """ 实现拉伸因子添加 """
+        self.log_event("ADD_STRETCH", stretch_factor)
 
-class QSimVBoxLayout(QSimLayout): pass
+    def addSpacing(self, size):
+        """ 实现固定间距添加 """
+        self.log_event("ADD_SPACING", size)
+
+    def insertStretch(self, index, stretch=0):
+        self.log_event("INSERT_STRETCH", index, stretch)
+
+    def setStretchFactor(self, widget, stretch):
+        self.log_event("SET_STRETCH_FACTOR", widget.__class__.__name__, stretch)
 
 
-class QSimHBoxLayout(QSimLayout): pass
+class QSimVBoxLayout(QSimLayout):
+    def __init__(self, parent=None):  # 构造函数
+        super().__init__(parent=parent)  # 传递父组件参数
+
+
+class QSimHBoxLayout(QSimLayout):
+    def __init__(self, parent=None):
+        super().__init__(parent=parent)
 
 
 class QSimFont:
@@ -213,6 +275,7 @@ class QSimSignal:
             handler(*args)
 
 
+# 字体框类
 class QSimFontComboBox(QSimWidget):
     def __init__(self):
         super().__init__()
@@ -231,6 +294,151 @@ class QSimFontComboBox(QSimWidget):
 
     def currentFont(self):
         return self._current_font
+
+
+# QSimColor 颜色模拟类
+class QSimColor:
+    def __init__(self, r, g, b):
+        self.r = r
+        self.g = g
+        self.b = b
+
+    def __repr__(self):
+        return f"Color({self.r},{self.g},{self.b})"
+
+
+# QSimPixmap 图像模拟类
+class QSimPixmap:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+        self.color = None
+
+    def fill(self, color):
+        self.color = color
+
+
+class QSimGroupBox(QSimWidget):
+    def __init__(self, title="", parent=None):
+        super().__init__(parent=parent)
+        self._title = title
+        self._layout = None
+        self.log_event("GROUPBOX_CREATED", title)
+
+    def setTitle(self, title):
+        self._title = title
+        self.log_event("GROUPBOX_TITLE_SET", title)
+
+    def setLayout(self, layout):
+        """继承自QSimWidget的方法，无需重写"""
+        super().setLayout(layout)
+
+
+class QSimCheckBox(QSimWidget):
+    # 状态常量
+    Unchecked = 0
+    PartiallyChecked = 1
+    Checked = 2
+
+    def __init__(self, text="", parent=None):
+        super().__init__(parent=parent)
+        self._text = text
+        self._state = self.Unchecked
+        self.stateChanged = QSimSignal()  # 状态变化信号
+        self.log_event("CHECKBOX_CREATED", text)
+
+    def setText(self, text):
+        self._text = text
+        self.log_event("CHECKBOX_TEXT_CHANGED", text)
+
+    def isChecked(self):
+        return self._state == self.Checked
+
+    def setCheckState(self, state):
+        state_map = {
+            self.Unchecked: "Unchecked",
+            self.PartiallyChecked: "PartiallyChecked",
+            self.Checked: "Checked"
+        }
+        if self._state != state:
+            self._state = state
+            self.log_event("CHECKBOX_STATE_CHANGED", state_map[state])
+            self.stateChanged.emit(state)
+
+    def setChecked(self, checked):
+        state = self.Checked if checked else self.Unchecked
+        self.setCheckState(state)
+
+
+class QSimComboBox(QSimWidget):
+    def __init__(self, parent=None):
+        super().__init__(parent=parent)
+        self._items = []
+        self._current_index = -1
+        self.currentIndexChanged = QSimSignal()  # 索引变化信号
+        self.log_event("COMBOBOX_CREATED")
+
+    def addItem(self, text):
+        self._items.append(text)
+        self.log_event("COMBOBOX_ITEM_ADDED", text)
+        if self._current_index == -1:
+            self.setCurrentIndex(0)
+
+    def addItems(self, items):
+        """ 批量添加多个选项 """
+        for text in items:
+            self.addItem(text)  # 复用单个添加的逻辑
+        self.log_event("COMBOBOX_ITEMS_ADDED", len(items))
+
+    def currentIndex(self):
+        return self._current_index
+
+    def currentText(self):
+        return self._items[self._current_index] if self._current_index >= 0 else ""
+
+    def setCurrentIndex(self, index):
+        if index != self._current_index and 0 <= index < len(self._items):
+            self._current_index = index
+            self.log_event("COMBOBOX_INDEX_CHANGED", index, self._items[index])
+            self.currentIndexChanged.emit(index)
+
+
+class QSimStatusBar(QSimWidget):
+    def __init__(self, parent=None):
+        super().__init__(parent=parent)
+        self._temporary_message = ""
+        self._permanent_widgets = []
+        self._normal_widgets = []
+        self.log_event("STATUSBAR_CREATED")
+        self.messageChanged = QSimSignal()  # 消息变化信号
+
+    def showMessage(self, message, timeout=0):
+        self._temporary_message = message
+        self.log_event("STATUSBAR_SHOW_MESSAGE", message, f"{timeout}ms")
+        self.messageChanged.emit(message)
+
+    def clearMessage(self):
+        self._temporary_message = ""
+        self.log_event("STATUSBAR_CLEAR_MESSAGE")
+        self.messageChanged.emit("")
+
+    def addPermanentWidget(self, widget, stretch=0):
+        self._permanent_widgets.append(widget)
+        self.log_event("STATUSBAR_ADD_PERMANENT", widget.__class__.__name__, f"stretch={stretch}")
+        widget._parent = self
+
+    def addWidget(self, widget, stretch=0):
+        self._normal_widgets.append(widget)
+        self.log_event("STATUSBAR_ADD_WIDGET", widget.__class__.__name__, f"stretch={stretch}")
+        widget._parent = self
+
+    def removeWidget(self, widget):
+        if widget in self._normal_widgets:
+            self._normal_widgets.remove(widget)
+            self.log_event("STATUSBAR_REMOVE_WIDGET", widget.__class__.__name__)
+        elif widget in self._permanent_widgets:
+            self._permanent_widgets.remove(widget)
+            self.log_event("STATUSBAR_REMOVE_PERMANENT", widget.__class__.__name__)
 
 
 class QSimApplication:
@@ -255,13 +463,24 @@ class QSimApplication:
 
 
 class Qt:
-    AlignLeft = 'AlignLeft'
-    AlignRight = 'AlignRight'
-    AlignHCenter = 'AlignHCenter'
-    AlignTop = 'AlignTop'
-    AlignBottom = 'AlignBottom'
-    AlignVCenter = 'AlignVCenter'
-    AlignCenter = 'AlignCenter'
+    # 枚举类
+    class AlignmentFlag:
+        AlignLeft = "AlignLeft"
+        AlignRight = "AlignRight"
+        AlignHCenter = "AlignHCenter"
+        AlignVCenter = "AlignVCenter"
+        AlignCenter = "AlignCenter"
+        AlignTop = "AlignTop"
+        AlignBottom = "AlignBottom"
+
+    # 保持向后兼容的别名
+    AlignLeft = AlignmentFlag.AlignLeft
+    AlignRight = AlignmentFlag.AlignRight
+    AlignHCenter = AlignmentFlag.AlignHCenter
+    AlignVCenter = AlignmentFlag.AlignVCenter
+    AlignCenter = AlignmentFlag.AlignCenter
+    AlignTop = AlignmentFlag.AlignTop
+    AlignBottom = AlignmentFlag.AlignBottom
 
 
 QWidget = QSimWidget
@@ -273,6 +492,12 @@ QHBoxLayout = QSimHBoxLayout
 QFont = QSimFont
 QApplication = QSimApplication
 QFontComboBox = QSimFontComboBox
+QColor = QSimColor
+QPixmap = QSimPixmap
+QGroupBox = QSimGroupBox
+QCheckBox = QSimCheckBox
+QComboBox = QSimComboBox
+QStatusBar = QSimStatusBar
 
 
 def get_logs():
