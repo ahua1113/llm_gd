@@ -12,6 +12,10 @@ class QSimWidget:
         self._layout_index = 0  # 在父布局中的索引
         self.log_event("WIDGET_CREATED", self.__class__.__name__)
 
+    def setFixedHeight(self, h):
+        self._properties['fixed_height'] = h
+        self.log_event("SET_FIXED_HEIGHT", h)
+
     def setLayout(self, layout):
         self._layout = layout
         self.log_event("SET_LAYOUT", layout.__class__.__name__)
@@ -55,11 +59,16 @@ class QSimWidget:
     def show(self):
         self.log_event("WINDOW_SHOW")
 
+    def setStyleSheet(self, style):
+        self._properties['style'] = style
+        self.log_event("STYLESHEET_SET", style)
+
 
 class QSimLabel(QSimWidget):
-    def __init__(self, text=""):
-        super().__init__()
+    def __init__(self, text="", parent=None):
+        super().__init__(parent=parent)  # 传递给父类
         self._text = text
+        self._font = QSimFont()  # 初始化默认字体对象
         self.log_event("LABEL_CREATED", text)
 
     def setText(self, text):
@@ -68,6 +77,10 @@ class QSimLabel(QSimWidget):
 
     def setFont(self, font):
         self.log_event("FONT_SET", font.get_properties())
+
+    def setPixmap(self, pixmap):
+        color_info = f"{pixmap.color.r},{pixmap.color.g},{pixmap.color.b}" if pixmap.color else "None"
+        self.log_event("PIXMAP_SET", f"Size({pixmap.width}x{pixmap.height})", f"Color({color_info})")
 
     def setAlignment(self, alignment):
         # 添加对齐值的转换
@@ -79,6 +92,11 @@ class QSimLabel(QSimWidget):
             Qt.AlignVCenter: "VCenter"
         }
         self.log_event("ALIGNMENT_SET", alignment_map.get(alignment, str(alignment)))
+
+    # 返回当前字体对象
+    def font(self):
+        """ 返回当前字体对象 """
+        return self._font  # 返回已关联的字体对象
 
 
 class QSimLineEdit(QSimWidget):
@@ -140,11 +158,25 @@ class QSimLayout:
                 current = getattr(current, '_parent', None)
         return path
 
-    def addWidget(self, widget):
+    def addWidget(self, widget, alignment=None):
         widget._parent_layout = self  # 设置子组件的父布局
         widget._layout_index = len(self._children)
         self._children.append(widget)
         self.log_event("ADD_WIDGET", widget.__class__.__name__)
+
+        # 对齐参数处理
+        if alignment is not None:
+            alignment_map = {
+                Qt.AlignLeft: "Left",
+                Qt.AlignRight: "Right",
+                Qt.AlignCenter: "Center",
+                Qt.AlignHCenter: "HCenter",
+                Qt.AlignVCenter: "VCenter"
+            }
+            aligned_str = alignment_map.get(alignment, str(alignment))
+            self.log_event("ADD_WIDGET_ALIGNMENT", widget.__class__.__name__, aligned_str)
+        else:
+            self.log_event("ADD_WIDGET", widget.__class__.__name__)
 
     def addLayout(self, layout):
         layout._parent_layout = self  # 设置子布局的父布局
@@ -213,6 +245,7 @@ class QSimSignal:
             handler(*args)
 
 
+# 字体框类
 class QSimFontComboBox(QSimWidget):
     def __init__(self):
         super().__init__()
@@ -231,6 +264,28 @@ class QSimFontComboBox(QSimWidget):
 
     def currentFont(self):
         return self._current_font
+
+
+# QSimColor 颜色模拟类
+class QSimColor:
+    def __init__(self, r, g, b):
+        self.r = r
+        self.g = g
+        self.b = b
+
+    def __repr__(self):
+        return f"Color({self.r},{self.g},{self.b})"
+
+
+# QSimPixmap 图像模拟类
+class QSimPixmap:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+        self.color = None
+
+    def fill(self, color):
+        self.color = color
 
 
 class QSimApplication:
@@ -273,6 +328,8 @@ QHBoxLayout = QSimHBoxLayout
 QFont = QSimFont
 QApplication = QSimApplication
 QFontComboBox = QSimFontComboBox
+QColor = QSimColor
+QPixmap = QSimPixmap
 
 
 def get_logs():
