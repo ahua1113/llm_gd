@@ -1,5 +1,8 @@
 class Qt:
-    # 枚举类
+    # 方向枚举
+    Horizontal = 0
+    Vertical = 1
+
     class AlignmentFlag:
         AlignLeft = "AlignLeft"
         AlignRight = "AlignRight"

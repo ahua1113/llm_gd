@@ -42,6 +42,7 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     settings_panel = SettingsPanel()
     settings_panel.show()
+    app.exec_()
 
     current_file = os.path.basename(__file__)
     output_log.writeLog(current_file)

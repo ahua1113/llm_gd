@@ -1,31 +1,48 @@
+from qsim.layouts import QSimLayout
+
+
 class QSimFont:
-    def __init__(self, font_family='', font_size=12):
-        """模拟Qt的字体对象构造函数
-        :param font_family: 字体名称（如'Arial'）
-        :param font_size: 字号（整数）
-        """
-        self._props = {
-            'family': font_family,
-            'size': font_size,
+    def __init__(self):
+        self._properties = {
+            'family': 'Arial',
+            'point_size': 12,
             'bold': False,
-            'italic': False
+            'italic': False,
+            'underline': False
         }
 
-    def setFamily(self, name):
-        self._props['family'] = name
+    def setItalic(self, enable):
+        self._properties['italic'] = enable
+        self._log_change("ITALIC", enable)
 
-    def pointSize(self):
-        return self._props['size']
-
-    def setBold(self, bold):
-        self._props['bold'] = bold
+    def setBold(self, enable):
+        self._properties['bold'] = enable
+        self._log_change("BOLD", enable)
 
     def setPointSize(self, size):
-        self._props['size'] = size
+        self._properties['point_size'] = size
+        self._log_change("SIZE", size)
+
+    def setFamily(self, family):
+        self._properties['family'] = family
+        self._log_change("FAMILY", family)
+
+    def setUnderline(self, enable):
+        self._properties['underline'] = enable
+        self._log_change("UNDERLINE", enable)
+
+    def _log_change(self, prop_type, value):
+        """统一记录字体属性变化"""
+        entry = {
+            'component': self,
+            'event': f"[FONT_{prop_type}_SET] {value}",
+            'path': []
+        }
+        QSimLayout._logs.append(entry)
 
     def get_properties(self):
-        return f"Font(bold={self._props.get('bold', False)}, size={self._props.get('size', 12)})"
-
+        """获取字体特征字典（用于日志记录）"""
+        return self._properties.copy()
 
 # 添加信号基类
 class QSimSignal:

@@ -475,6 +475,157 @@ class QTableWidget(QSimWidget):
 
 
 '''—————————————————————————————————————————————分割线———————————————————————————————————————————————————————————————'''
+'''进度条组件'''
+
+
+class QSimProgressBar(QSimWidget):
+    def __init__(self, parent=None):
+        super().__init__(parent=parent)
+        self._min = 0
+        self._max = 100
+        self._value = 0
+        self._orientation = Qt.Horizontal  # 使用框架中的Qt枚举
+        self._text_visible = True
+        self.valueChanged = QSimSignal()  # 初始化值变化信号
+        self.log_event("PROGRESSBAR_CREATED")
+
+    def setMinimum(self, min_val):
+        """设置最小值并记录日志"""
+        if self._min != min_val:
+            self._min = min_val
+            self.log_event("PROGRESSBAR_MIN_SET", min_val)
+            self._clamp_value()
+
+    def setMaximum(self, max_val):
+        """设置最大值并记录日志"""
+        if self._max != max_val:
+            self._max = max_val
+            self.log_event("PROGRESSBAR_MAX_SET", max_val)
+            self._clamp_value()
+
+    def setRange(self, min_val, max_val):
+        """同时设置范围并优化日志记录"""
+        changed = False
+        if self._min != min_val:
+            self._min = min_val
+            changed = True
+        if self._max != max_val:
+            self._max = max_val
+            changed = True
+        if changed:
+            self.log_event("PROGRESSBAR_RANGE_SET", min_val, max_val)
+            self._clamp_value()
+
+    def _clamp_value(self):
+        """确保当前值在有效范围内"""
+        new_value = max(self._min, min(self._value, self._max))
+        if new_value != self._value:
+            self.setValue(new_value)
+
+    def setValue(self, value):
+        """设置当前值并触发信号"""
+        clamped_value = max(self._min, min(value, self._max))
+        if self._value != clamped_value:
+            self._value = clamped_value
+            self.log_event("PROGRESSBAR_VALUE_SET", clamped_value)
+            self.valueChanged.emit(clamped_value)
+
+    def setOrientation(self, orientation):
+        """设置进度条方向"""
+        orientation_map = {
+            Qt.Horizontal: "Horizontal",
+            Qt.Vertical: "Vertical"
+        }
+        if self._orientation != orientation:
+            self._orientation = orientation
+            self.log_event("PROGRESSBAR_ORIENTATION_SET",
+                           orientation_map.get(orientation, str(orientation)))
+
+    def setTextVisible(self, visible):
+        """设置文本可见性"""
+        if self._text_visible != visible:
+            self._text_visible = visible
+            self.log_event("PROGRESSBAR_TEXT_VISIBILITY",
+                           "Visible" if visible else "Hidden")
+
+    def value(self):
+        """获取当前值"""
+        return self._value
+
+
+'''—————————————————————————————————————————————分割线———————————————————————————————————————————————————————————————'''
+'''标签页组件'''
+
+
+class QSimTabWidget(QSimWidget):
+    def __init__(self, parent=None):
+        super().__init__(parent=parent)
+        self._tabs = []  # 保存元组（组件, 标题, 图标）
+        self._current_index = -1
+        self.currentChanged = QSimSignal()  # 当前页变化信号
+        self.log_event("TABWIDGET_CREATED")
+
+    def addTab(self, widget, label):
+        """添加新标签页"""
+        self._tabs.append((widget, label, None))
+        widget._parent = self  # 设置子组件的父级
+        index = len(self._tabs) - 1
+        self.log_event("TAB_ADDED", label, widget.__class__.__name__, index)
+
+        # 自动选择第一个标签页
+        if self._current_index == -1:
+            self.setCurrentIndex(0)
+
+    def insertTab(self, index, widget, label):
+        """插入标签页到指定位置"""
+        self._tabs.insert(index, (widget, label, None))
+        widget._parent = self
+        # 更新后续标签页的布局索引
+        for i in range(index + 1, len(self._tabs)):
+            tab_widget = self._tabs[i][0]
+            tab_widget._layout_index = i
+        self.log_event("TAB_INSERTED", index, label, widget.__class__.__name__)
+
+        if self._current_index >= index:
+            self._current_index += 1
+
+    def setCurrentIndex(self, index):
+        """设置当前选中的标签页"""
+        if index < 0 or index >= len(self._tabs):
+            return
+        if self._current_index != index:
+            prev_index = self._current_index
+            self._current_index = index
+            self.log_event("TAB_SWITCHED", prev_index, index)
+            self.currentChanged.emit(index)
+
+    def setTabText(self, index, text):
+        """修改标签页文本"""
+        if 0 <= index < len(self._tabs):
+            widget, old_text, icon = self._tabs[index]
+            self._tabs[index] = (widget, text, icon)
+            self.log_event("TAB_TEXT_CHANGED", index, old_text, text)
+
+    def setTabIcon(self, index, icon):
+        """设置标签页图标"""
+        if 0 <= index < len(self._tabs):
+            widget, text, old_icon = self._tabs[index]
+            self._tabs[index] = (widget, text, icon)
+            icon_info = f"{icon.width}x{icon.height}" if icon else "None"
+            self.log_event("TAB_ICON_SET", index, icon_info)
+
+    def currentWidget(self):
+        """获取当前显示的组件"""
+        if self._current_index != -1:
+            return self._tabs[self._current_index][0]
+        return None
+
+    def count(self):
+        """获取标签页数量"""
+        return len(self._tabs)
+
+
+'''—————————————————————————————————————————————分割线———————————————————————————————————————————————————————————————'''
 
 
 class QSimApplication:
@@ -513,6 +664,8 @@ QGroupBox = QSimGroupBox
 QCheckBox = QSimCheckBox
 QComboBox = QSimComboBox
 QStatusBar = QSimStatusBar
+QProgressBar = QSimProgressBar
+QTabWidget = QSimTabWidget
 
 
 # 为了方便导入，在组件类中取日志

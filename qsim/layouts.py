@@ -36,11 +36,13 @@ class QSimLayout:
                 current = getattr(current, '_parent', None)
         return path
 
-    def addWidget(self, widget, alignment=None):
+    def addWidget(self, widget, stretch=0, alignment=None):
         widget._parent_layout = self  # 设置子组件的父布局
         widget._layout_index = len(self._children)
         self._children.append(widget)
-        self.log_event("ADD_WIDGET", widget.__class__.__name__)
+
+        # 记录拉伸因子
+        self.log_event("ADD_WIDGET", widget.__class__.__name__, f"stretch({stretch})")
 
         # 对齐参数处理
         if alignment is not None:

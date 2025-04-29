@@ -10,7 +10,7 @@ class LoginForm(QWidget):
     5. 所有元素垂直居中，窗口固定为300x250
     """
 注：所有可能涉及到的组件这样导入：
-from qsimlogger import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor)
+from qsim.widgets import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor)
 用 "if __name__ == '__main__':" 启动界面
 
 
@@ -23,7 +23,7 @@ class FontSelectorDemo(QWidget):
     4. 窗口固定尺寸300x150
     """
 注：所有可能涉及到的组件这样导入：
-from qsimlogger import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor)
+from qsim.widgets import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor)
 用 "if __name__ == '__main__':" 启动界面
 
 
@@ -36,7 +36,7 @@ class ProfileCard(QWidget):
     4. 窗口固定尺寸200x220
     """
 注：所有可能涉及到的组件这样导入：
-from qsimlogger import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor)
+from qsim.widgets import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor)
 用 "if __name__ == '__main__':" 启动界面
 
 
@@ -50,7 +50,7 @@ class SettingsPanel(QWidget):
     3. 所有控件使用垂直布局，窗口宽度固定为400
     """
 注：所有可能涉及到的组件这样导入：
-from qsimlogger import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor, QGroupBox, QCheckBox, QComboBox)
+from qsim.widgets import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor, QGroupBox, QCheckBox, QComboBox)
 用 "if __name__ == '__main__':" 启动界面
 
 
@@ -63,7 +63,7 @@ class ImageViewer(QWidget):
     4. 窗口尺寸锁定为250x300
     """
 注：所有可能涉及到的组件这样导入：
-from qsimlogger import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor, QGroupBox, QCheckBox, QComboBox, QStatusBar)
+from qsim.widgets import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor, QGroupBox, QCheckBox, QComboBox, QStatusBar)
 用 "if __name__ == '__main__':" 启动界面
 
 
@@ -79,6 +79,7 @@ class DataTable(QWidget):
 from qsim.widgets import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox,
                           QApplication, Qt, QPixmap, QColor, QGroupBox, QCheckBox,
                           QComboBox, QStatusBar, QTableWidgetItem, QTableWidget)
+且显示界面以 app.exec_() 结尾，即不关闭界面
 
 
 Q7/进度指示器
@@ -89,6 +90,9 @@ class ProgressIndicator(QWidget):
     3. 进度条下方显示说明文本"Step 2/4"
     4. 所有元素垂直居中，窗口高度固定为150
     """
+注：所有可能涉及到的组件这样导入：
+from qsim.widgets import QWidget, QLabel, QProgressBar, QVBoxLayout, QApplication, QFont, Qt
+且显示界面以 app.exec_() 结尾，即不关闭界面
 
 
 Q8/选项卡容器
@@ -99,6 +103,11 @@ class TabDemo(QWidget):
     3. Advanced页包含红色警告图标和提示文本
     4. 选项卡宽度适应窗口（固定尺寸400x300）
     """
+注：所有可能涉及到的组件这样导入：
+from qsim.widgets import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox,
+                          QApplication, Qt, QPixmap, QColor, QGroupBox, QCheckBox, QTabWidget
+                          QComboBox, QStatusBar, QTableWidgetItem, QTableWidget)
+且显示界面以 app.exec_() 结尾，即不关闭界面
 
 
 Q9/工具按钮栏

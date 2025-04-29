@@ -1,0 +1,32 @@
+[WIDGET_CREATED] TabDemo
+[SET_SIZE] 400, 300
+[WIDGET_CREATED] QSimTabWidget
+[TABWIDGET_CREATED] 
+[WIDGET_CREATED] QSimWidget
+[WIDGET_CREATED] QSimGroupBox
+[GROUPBOX_CREATED] Settings
+[LAYOUT_CREATED] QSimVBoxLayout
+[ADD_WIDGET] QSimGroupBox, stretch(0)
+[ADD_WIDGET] QSimGroupBox
+[WIDGET_CREATED] QSimWidget
+[WIDGET_CREATED] QSimLabel
+[LABEL_CREATED] ⚠️
+[STYLESHEET_SET] color: red; font-size: 32px;
+[WIDGET_CREATED] QSimLabel
+[LABEL_CREATED] Advanced options require careful configuration.
+[LAYOUT_CREATED] QSimHBoxLayout
+[ADD_STRETCH] 0
+[ADD_WIDGET] QSimLabel, stretch(0)
+[ADD_WIDGET] QSimLabel
+[ADD_SPACING] 10
+[ADD_WIDGET] QSimLabel, stretch(0)
+[ADD_WIDGET] QSimLabel
+[ADD_STRETCH] 0
+[TAB_ADDED] General, QSimWidget, 0
+[TAB_SWITCHED] -1, 0
+[TAB_ADDED] Advanced, QSimWidget, 1
+[LAYOUT_CREATED] QSimVBoxLayout
+[ADD_WIDGET] QSimTabWidget, stretch(0)
+[ADD_WIDGET] QSimTabWidget
+[WINDOW_SHOW] 
+[APP_EXEC] 
