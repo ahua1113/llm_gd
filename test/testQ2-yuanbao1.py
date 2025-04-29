@@ -1,5 +1,5 @@
-from qsimlogger import (QWidget, QLabel, QVBoxLayout, QFont,
-                        QFontComboBox, QApplication, Qt)
+from scrap.qsimlogger import (QWidget, QLabel, QVBoxLayout, QFont,
+                              QFontComboBox, QApplication, Qt)
 
 
 class FontSelectorDemo(QWidget):
@@ -52,7 +52,7 @@ if __name__ == '__main__':
     app.exec_()
 
     # 打印捕获的日志（实际评估时输出到文件）
-    from qsimlogger import get_logs
+    from scrap.qsimlogger import get_logs
     import os
 
     # 获取当前脚本所在目录

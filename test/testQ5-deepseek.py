@@ -2,7 +2,7 @@ import os
 import sys
 
 import output_log
-from qsimlogger import (QWidget, QLabel, QVBoxLayout, QApplication, Qt, QStatusBar)
+from qsim.widgets import (QWidget, QLabel, QVBoxLayout, QApplication, Qt, QStatusBar)
 
 
 class ImageViewer(QWidget):

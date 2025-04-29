@@ -1,7 +1,7 @@
 import os
 
 import output_log
-from qsimlogger import (QWidget, QLabel, QVBoxLayout, Qt, QPixmap, QColor, QFont, QApplication)
+from scrap.qsimlogger import (QWidget, QLabel, QVBoxLayout, Qt, QPixmap, QColor, QApplication)
 
 
 class ProfileCard(QWidget):

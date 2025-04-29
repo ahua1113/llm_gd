@@ -2,7 +2,7 @@ import os
 import sys
 
 import output_log
-from qsimlogger import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox,
+from qsim.widgets import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox,
                         QApplication, Qt, QPixmap, QColor, QGroupBox, QCheckBox, QComboBox, QStatusBar)
 
 

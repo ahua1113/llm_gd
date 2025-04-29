@@ -1,5 +1,5 @@
 # 打印捕获的日志（实际评估时输出到文件）
-from qsimlogger import get_logs
+from qsim.widgets import get_logs
 import os
 
 

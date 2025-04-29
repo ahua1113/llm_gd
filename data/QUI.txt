@@ -66,6 +66,7 @@ class ImageViewer(QWidget):
 from qsimlogger import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor, QGroupBox, QCheckBox, QComboBox, QStatusBar)
 用 "if __name__ == '__main__':" 启动界面
 
+
 Q6/数据表格展示
 class DataTable(QWidget):
     """创建固定数据表格：

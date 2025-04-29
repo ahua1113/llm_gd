@@ -2,8 +2,7 @@ import os
 import sys
 
 import output_log
-from qsimlogger import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont,
-                        QFontComboBox, QApplication, Qt, QPixmap, QColor, QGroupBox, QCheckBox, QComboBox)
+from qsim.widgets import (QWidget, QVBoxLayout, QApplication, QGroupBox, QCheckBox, QComboBox)
 
 
 class SettingsPanel(QWidget):
