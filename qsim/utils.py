@@ -44,10 +44,13 @@ class QSimFont:
         """获取字体特征字典（用于日志记录）"""
         return self._properties.copy()
 
+
 # 添加信号基类
 class QSimSignal:
-    def __init__(self):
-        self._handlers = []
+    def __init__(self, *types):
+        """构造信号时定义参数类型（如 QSimSignal(int) 表示传递整数）"""
+        self._types = types  # 存储期望的参数类型
+        self._handlers = []  # 信号连接的槽函数列表
 
     def connect(self, handler):
         self._handlers.append(handler)

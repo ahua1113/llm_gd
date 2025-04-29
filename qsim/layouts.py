@@ -95,3 +95,66 @@ class QSimVBoxLayout(QSimLayout):
 class QSimHBoxLayout(QSimLayout):
     def __init__(self, parent=None):
         super().__init__(parent=parent)
+
+
+class QSimGridLayout(QSimLayout):
+    def __init__(self, parent=None):
+        super().__init__(parent=parent)
+        self.log_event("GRID_LAYOUT_CREATED", self.__class__.__name__)
+
+    def addWidget(self, widget, row=0, column=0, rowSpan=1, columnSpan=1, stretch=0, alignment=None):
+        """向网格布局添加组件，兼容基类参数并支持网格特性"""
+        widget._parent_layout = self
+        widget._layout_index = len(self._children)
+        self._children.append(widget)
+
+        # 记录基类的stretch和alignment
+        super().addWidget(widget, stretch=stretch, alignment=alignment)
+
+        # 记录网格布局参数
+        self.log_event("GRID_ADD_WIDGET", widget.__class__.__name__,
+                      f"row={row}", f"col={column}",
+                      f"rowSpan={rowSpan}", f"colSpan={columnSpan}")
+
+        # 处理对齐方式
+        if alignment:
+            align_str = self._convert_alignment(alignment)
+            self.log_event("GRID_WIDGET_ALIGNMENT", widget.__class__.__name__, align_str)
+
+    def addLayout(self, layout, row=0, column=0, rowSpan=1, columnSpan=1, alignment=None):
+        """向网格布局添加子布局，保持参数兼容性"""
+        layout._parent_layout = self
+        layout._layout_index = len(self._children)
+        self._children.append(layout)
+
+        # 调用基类方法（无额外参数）
+        super().addLayout(layout)
+
+        # 记录网格布局参数
+        self.log_event("GRID_ADD_LAYOUT", layout.__class__.__name__,
+                      f"row={row}", f"col={column}",
+                      f"rowSpan={rowSpan}", f"colSpan={columnSpan}")
+
+        # 处理对齐方式
+        if alignment:
+            align_str = self._convert_alignment(alignment)
+            self.log_event("GRID_LAYOUT_ALIGNMENT", layout.__class__.__name__, align_str)
+
+    def setRowStretch(self, row, factor):
+        self.log_event("GRID_ROW_STRETCH", row, factor)
+
+    def setColumnStretch(self, column, factor):
+        self.log_event("GRID_COLUMN_STRETCH", column, factor)
+
+    def _convert_alignment(self, alignment):
+        """将Qt对齐枚举转换为可读字符串"""
+        alignment_map = {
+            Qt.AlignLeft: "Left",
+            Qt.AlignRight: "Right",
+            Qt.AlignCenter: "Center",
+            Qt.AlignHCenter: "HCenter",
+            Qt.AlignVCenter: "VCenter",
+            Qt.AlignTop: "Top",
+            Qt.AlignBottom: "Bottom"
+        }
+        return alignment_map.get(alignment, str(alignment))

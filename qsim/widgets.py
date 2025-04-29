@@ -626,6 +626,266 @@ class QSimTabWidget(QSimWidget):
 
 
 '''—————————————————————————————————————————————分割线———————————————————————————————————————————————————————————————'''
+'''数字输入框组件'''
+
+
+class QSimSpinBox(QSimWidget):
+    def __init__(self, parent=None):
+        super().__init__(parent=parent)
+        self._min = 0
+        self._max = 100
+        self._value = 0
+        self._step = 1
+        self.valueChanged = QSimSignal()  # 数值变化信号
+        self.log_event("SPINBOX_CREATED")
+
+    def setMinimum(self, min_val):
+        if self._min != min_val:
+            self._min = min_val
+            self.log_event("SPINBOX_MIN_SET", min_val)
+            self._clamp_value()
+
+    def setMaximum(self, max_val):
+        if self._max != max_val:
+            self._max = max_val
+            self.log_event("SPINBOX_MAX_SET", max_val)
+            self._clamp_value()
+
+    def setRange(self, min_val, max_val):
+        changed = False
+        if self._min != min_val:
+            self._min = min_val
+            changed = True
+        if self._max != max_val:
+            self._max = max_val
+            changed = True
+        if changed:
+            self.log_event("SPINBOX_RANGE_SET", min_val, max_val)
+            self._clamp_value()
+
+    def setValue(self, value):
+        clamped_value = max(self._min, min(value, self._max))
+        if self._value != clamped_value:
+            self._value = clamped_value
+            self.log_event("SPINBOX_VALUE_SET", clamped_value)
+            self.valueChanged.emit(clamped_value)
+
+    def setSingleStep(self, step):
+        if self._step != step:
+            self._step = step
+            self.log_event("SPINBOX_STEP_SET", step)
+
+    def value(self):
+        return self._value
+
+    def _clamp_value(self):
+        """确保当前值在有效范围内"""
+        self.setValue(self._value)  # 强制重新校验当前值
+
+
+'''—————————————————————————————————————————————分割线———————————————————————————————————————————————————————————————'''
+'''滑块组件'''
+
+
+class QSimSlider(QSimWidget):
+    def __init__(self, orientation=Qt.Horizontal, parent=None):
+        super().__init__(parent=parent)
+        self._min = 0
+        self._max = 100
+        self._value = 0
+        self._orientation = orientation
+        self.valueChanged = QSimSignal()  # 数值变化信号
+        self.sliderMoved = QSimSignal()  # 滑块拖动信号
+        self.log_event("SLIDER_CREATED", "Horizontal" if orientation == Qt.Horizontal else "Vertical")
+
+    def setMinimum(self, min_val):
+        if self._min != min_val:
+            self._min = min_val
+            self.log_event("SLIDER_MIN_SET", min_val)
+            self._clamp_value()
+
+    def setMaximum(self, max_val):
+        if self._max != max_val:
+            self._max = max_val
+            self.log_event("SLIDER_MAX_SET", max_val)
+            self._clamp_value()
+
+    def setRange(self, min_val, max_val):
+        changed = False
+        if self._min != min_val:
+            self._min = min_val
+            changed = True
+        if self._max != max_val:
+            self._max = max_val
+            changed = True
+        if changed:
+            self.log_event("SLIDER_RANGE_SET", min_val, max_val)
+            self._clamp_value()
+
+    def setValue(self, value):
+        clamped_value = max(self._min, min(value, self._max))
+        if self._value != clamped_value:
+            self._value = clamped_value
+            self.log_event("SLIDER_VALUE_SET", clamped_value)
+            self.valueChanged.emit(clamped_value)
+
+    def value(self):
+        return self._value
+
+    def setOrientation(self, orientation):
+        if self._orientation != orientation:
+            self._orientation = orientation
+            orient_str = "Horizontal" if orientation == Qt.Horizontal else "Vertical"
+            self.log_event("SLIDER_ORIENTATION_SET", orient_str)
+
+    def sliderPosition(self):
+        """获取滑块当前位置（模拟值为当前值）"""
+        return self._value
+
+    def _clamp_value(self):
+        """确保当前值在有效范围内"""
+        self.setValue(self._value)
+
+
+'''—————————————————————————————————————————————分割线———————————————————————————————————————————————————————————————'''
+'''单选按钮组件'''
+
+
+class QSimRadioButton(QSimWidget):
+    def __init__(self, text="", parent=None):
+        super().__init__(parent=parent)
+        self._text = text
+        self._checked = False
+        self.toggled = QSimSignal(bool)  # 状态变化信号（携带布尔值）
+        self.log_event("RADIOBUTTON_CREATED", text)
+
+    def setText(self, text):
+        self._text = text
+        self.log_event("RADIOBUTTON_TEXT_CHANGED", text)
+
+    def isChecked(self):
+        return self._checked
+
+    def setChecked(self, checked):
+        if self._checked != checked:
+            self._checked = checked
+            self.log_event("RADIOBUTTON_CHECKED" if checked else "RADIOBUTTON_UNCHECKED")
+            self.toggled.emit(checked)  # 触发信号
+
+    def text(self):
+        return self._text
+
+
+'''—————————————————————————————————————————————分割线———————————————————————————————————————————————————————————————'''
+'''框架组件'''
+
+
+class QSimFrame(QSimWidget):
+    # 边框样式枚举（模拟Qt的QFrame.Shape）
+    NoFrame = 0
+    Box = 1
+    Panel = 2
+    WinPanel = 3
+    HLine = 4
+    VLine = 5
+    StyledPanel = 6
+
+    # 阴影样式枚举（模拟Qt的QFrame.Shadow）
+    Plain = 0
+    Raised = 1
+    Sunken = 2
+
+    def __init__(self, parent=None):
+        super().__init__(parent=parent)
+        self._frame_shape = self.NoFrame
+        self._frame_shadow = self.Plain
+        self._line_width = 1
+        self.log_event("FRAME_CREATED")
+
+    def setFrameShape(self, shape):
+        shape_names = {
+            self.NoFrame: "NoFrame",
+            self.Box: "Box",
+            self.Panel: "Panel",
+            self.HLine: "HLine",
+            self.VLine: "VLine"
+        }
+        if self._frame_shape != shape:
+            self._frame_shape = shape
+            self.log_event("FRAME_SHAPE_SET", shape_names.get(shape, "Unknown"))
+
+    def setFrameShadow(self, shadow):
+        shadow_names = {
+            self.Plain: "Plain",
+            self.Raised: "Raised",
+            self.Sunken: "Sunken"
+        }
+        if self._frame_shadow != shadow:
+            self._frame_shadow = shadow
+            self.log_event("FRAME_SHADOW_SET", shadow_names.get(shadow, "Unknown"))
+
+    def setLineWidth(self, width):
+        if self._line_width != width:
+            self._line_width = width
+            self.log_event("FRAME_LINE_WIDTH_SET", width)
+
+
+'''—————————————————————————————————————————————分割线———————————————————————————————————————————————————————————————'''
+'''列表组件'''
+
+
+class QSimListWidgetItem:
+    def __init__(self, text=""):
+        self.text = text
+        self._flags = Qt.ItemFlag.ItemIsSelectable | Qt.ItemFlag.ItemIsEditable  # 默认标志
+
+    def setText(self, text):
+        self.text = text
+
+    def setFlags(self, flags):
+        self._flags = flags
+
+
+class QSimListWidget(QSimWidget):
+    def __init__(self, parent=None):
+        super().__init__(parent=parent)
+        self._items = []
+        self._current_row = -1
+        self.itemClicked = QSimSignal(QSimListWidgetItem)  # 点击项信号
+        self.currentRowChanged = QSimSignal(int)          # 当前行变化信号
+        self.log_event("LISTWIDGET_CREATED")
+
+    def addItem(self, text):
+        item = QSimListWidgetItem(text)
+        self._items.append(item)
+        self.log_event("LISTWIDGET_ITEM_ADDED", text, f"row={len(self._items)-1}")
+
+    def addItems(self, texts):
+        for text in texts:
+            self.addItem(text)
+        self.log_event("LISTWIDGET_ITEMS_ADDED", len(texts))
+
+    def setCurrentRow(self, row):
+        if row < -1 or row >= len(self._items):
+            return
+        if self._current_row != row:
+            prev_row = self._current_row
+            self._current_row = row
+            self.log_event("LISTWIDGET_ROW_CHANGED", prev_row, row)
+            self.currentRowChanged.emit(row)  # 触发信号
+            if row != -1:
+                self.itemClicked.emit(self._items[row])  # 模拟点击事件
+
+    def currentItem(self):
+        return self._items[self._current_row] if self._current_row != -1 else None
+
+    def clear(self):
+        self._items.clear()
+        self._current_row = -1
+        self.log_event("LISTWIDGET_CLEARED")
+
+
+'''—————————————————————————————————————————————分割线———————————————————————————————————————————————————————————————'''
 
 
 class QSimApplication:
