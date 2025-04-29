@@ -71,10 +71,14 @@ Q6/数据表格展示
 class DataTable(QWidget):
     """创建固定数据表格：
     1. 3列表格：Name | Age | Department
-    2. 预填充两行示例数据
+    2. 预填充两行示例数据 data = [['Alice', '25', 'HR'],['Bob', '30', 'IT']]
     3. 表头字体加粗，表格宽度占满窗口
     4. 窗口尺寸设置为500x200
     """
+注：所有可能涉及到的组件这样导入：
+from qsim.widgets import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox,
+                          QApplication, Qt, QPixmap, QColor, QGroupBox, QCheckBox,
+                          QComboBox, QStatusBar, QTableWidgetItem, QTableWidget)
 
 
 Q7/进度指示器

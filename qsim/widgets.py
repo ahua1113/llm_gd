@@ -6,15 +6,26 @@ from qsim.enums import Qt
 
 
 class QSimWidget:
-    _logs = []
+    # _logs = []
 
     def __init__(self, parent=None):
+        self._geometry = (0, 0, 100, 100)  # (x, y, width, height)
+
         self._parent = parent
         self._properties = {}
         self._layout = None
         self._parent_layout = None  # 所属的父布局
         self._layout_index = 0  # 在父布局中的索引
         self.log_event("WIDGET_CREATED", self.__class__.__name__)
+
+    def setGeometry(self, x: int, y: int, w: int, h: int):
+        """模拟Qt的setGeometry方法"""
+        self._geometry = (x, y, w, h)
+        self.log_event("SET_GEOMETRY", x, y, w, h)
+
+    def geometry(self):
+        """获取当前几何参数"""
+        return self._geometry
 
     def setFixedHeight(self, h):
         self._properties['fixed_height'] = h
@@ -80,11 +91,15 @@ class QSimWidget:
         self.log_event("STYLESHEET_SET", style)
 
 
+'''—————————————————————————————————————————————分割线———————————————————————————————————————————————————————————————'''
+'''标签'''
+
+
 class QSimLabel(QSimWidget):
     def __init__(self, text="", parent=None):
         super().__init__(parent=parent)  # 传递给父类
         self._text = text
-        self._font = QSimFont()  # 初始化默认字体对象
+        self._font = QSimFont()  # 初始化默认字体对象，在 setFont 没有被显式调用时保证 _font不会为空
         self.log_event("LABEL_CREATED", text)
 
     def setText(self, text):
@@ -115,6 +130,10 @@ class QSimLabel(QSimWidget):
         return self._font  # 返回已关联的字体对象
 
 
+'''—————————————————————————————————————————————分割线———————————————————————————————————————————————————————————————'''
+'''单行文本框'''
+
+
 class QSimLineEdit(QSimWidget):
     Normal = 0
     NoEcho = 1
@@ -135,11 +154,19 @@ class QSimLineEdit(QSimWidget):
         self.log_event("ECHO_MODE_SET", mode_names.get(mode, "Unknown"))
 
 
+'''—————————————————————————————————————————————分割线———————————————————————————————————————————————————————————————'''
+'''按钮'''
+
+
 class QSimPushButton(QSimWidget):
     def __init__(self, text=""):
         super().__init__()
         self._text = text
         self.log_event("BUTTON_CREATED", text)
+
+
+'''—————————————————————————————————————————————分割线———————————————————————————————————————————————————————————————'''
+'''字体组合框'''
 
 
 # 字体框类
@@ -163,6 +190,10 @@ class QSimFontComboBox(QSimWidget):
         return self._current_font
 
 
+'''—————————————————————————————————————————————分割线———————————————————————————————————————————————————————————————'''
+'''分组框'''
+
+
 class QSimGroupBox(QSimWidget):
     def __init__(self, title="", parent=None):
         super().__init__(parent=parent)
@@ -177,6 +208,10 @@ class QSimGroupBox(QSimWidget):
     def setLayout(self, layout):
         """继承自QSimWidget的方法，无需重写"""
         super().setLayout(layout)
+
+
+'''—————————————————————————————————————————————分割线———————————————————————————————————————————————————————————————'''
+'''复选框'''
 
 
 class QSimCheckBox(QSimWidget):
@@ -215,6 +250,10 @@ class QSimCheckBox(QSimWidget):
         self.setCheckState(state)
 
 
+'''—————————————————————————————————————————————分割线———————————————————————————————————————————————————————————————'''
+'''组合框'''
+
+
 class QSimComboBox(QSimWidget):
     def __init__(self, parent=None):
         super().__init__(parent=parent)
@@ -246,6 +285,10 @@ class QSimComboBox(QSimWidget):
             self._current_index = index
             self.log_event("COMBOBOX_INDEX_CHANGED", index, self._items[index])
             self.currentIndexChanged.emit(index)
+
+
+'''—————————————————————————————————————————————分割线———————————————————————————————————————————————————————————————'''
+'''状态栏'''
 
 
 class QSimStatusBar(QSimWidget):
@@ -286,6 +329,154 @@ class QSimStatusBar(QSimWidget):
             self.log_event("STATUSBAR_REMOVE_PERMANENT", widget.__class__.__name__)
 
 
+'''—————————————————————————————————————————————分割线———————————————————————————————————————————————————————————————'''
+'''表格组件类'''
+
+
+class QTableWidgetItem:
+    """表格单元格项"""
+
+    def __init__(self, text=""):
+        self.text = text
+        self._alignment = None
+
+    def setText(self, text):
+        self.text = text
+
+    def setAlignment(self, alignment):
+        align_map = {
+            Qt.AlignLeft: "左对齐",
+            Qt.AlignRight: "右对齐",
+            Qt.AlignCenter: "居中"
+        }
+        self._alignment = align_map.get(alignment, "未知对齐")
+
+
+class QHeaderView(QSimWidget):
+    """模拟表头组件"""
+    Interactive = 0
+    Fixed = 1
+    Stretch = 2
+    ResizeToContents = 3
+    Custom = 4
+
+    class ResizeMode:
+        Interactive = 0
+        Fixed = 1
+        Stretch = 2
+        ResizeToContents = 3
+        Custom = 4
+
+    def __init__(self, orientation="horizontal"):
+        super().__init__()
+        self.orientation = orientation
+        self._font = QSimFont()  # 字体初始化，默认字体
+
+        self.ResizeMode = self.ResizeMode()  # 使枚举可通过实例访问
+        self._stretch_last = False  # 新增属性
+        self._resize_mode = "Interactive"  # 新增属性
+
+        self.log_event("HEADER_CREATED", orientation)
+
+    def setFont(self, font):
+        self._font = font
+        self.log_event("HEADER_FONT_SET", self.orientation)
+
+    def font(self):
+        return self._font  # 永远返回有效字体对象
+
+    def setStretchLastSection(self, enable):
+        self._stretch_last = enable
+        self.log_event("HEADER_STRETCH_LAST", str(enable))
+
+    def setSectionResizeMode(self, mode):
+        mode_map = {
+            self.ResizeMode.Interactive: "Interactive",
+            self.ResizeMode.Fixed: "Fixed",
+            self.ResizeMode.Stretch: "Stretch",  # 新增枚举映射
+            self.ResizeMode.ResizeToContents: "ResizeToContents",
+            self.ResizeMode.Custom: "Custom"
+        }
+        self._resize_mode = mode_map.get(mode, "Unknown")
+        self.log_event("HEADER_RESIZE_MODE", self._resize_mode)
+
+
+class QTableWidget(QSimWidget):
+    # 新增调整策略常量
+    AdjustToContents = "AdjustToContents"
+    AdjustToContentsOnFirstShow = "AdjustToContentsOnFirstShow"
+
+    def __init__(self, rows=0, cols=0):
+        super().__init__()
+        self._size_adjust_policy = None  # 策略调整相关属性
+
+        # 自动创建带默认字体的表头
+        self.horizontal_header = QHeaderView("horizontal")
+        self.vertical_header = QHeaderView("vertical")
+
+        self._rows = rows
+        self._cols = cols
+        self._items = {}
+        self.log_event("TABLE_CREATED", f"{rows}x{cols}")
+
+    def setRowCount(self, rows):
+        self._rows = rows
+        self.log_event("TABLE_ROW_RESIZED", rows)
+
+    def setColumnCount(self, cols):
+        self._cols = cols
+        self.log_event("TABLE_COL_RESIZED", cols)
+
+    def setItem(self, row, col, item):
+        """核心方法：设置单元格内容"""
+        if not isinstance(item, QTableWidgetItem):
+            raise TypeError("必须使用QTableWidgetItem类型")
+
+        self._items[(row, col)] = item
+        self.log_event("TABLE_ITEM_SET", row, col, item.text)
+
+    def cellWidget(self, row, col):
+        """获取单元格中的组件"""
+        return self._items.get((row, col), None)
+
+    def setHorizontalHeaderLabels(self, labels):
+        """设置水平表头"""
+        for col_idx, text in enumerate(labels):
+            item = QTableWidgetItem(text)
+            self.setItem(-1, col_idx, item)  # 用-1表示表头行
+        self.log_event("TABLE_HEADER_SET", "horizontal", labels)
+
+    # 继承自QSimWidget的日志方法
+    def log_event(self, event_type, *args):
+        entry = {
+            'component': self,
+            'event': f"[{event_type}] {', '.join(map(str, args))}",
+            'path': self.get_path()
+        }
+        QSimLayout._logs.append(entry)  # 直接操作布局类的日志存储
+
+    def horizontalHeader(self):
+        return self.horizontal_header
+
+    def verticalHeader(self):
+        return self.vertical_header
+
+    def setSizeAdjustPolicy(self, policy):
+        """ 核心：将策略常量映射到表头调整模式 """
+        policy_map = {
+            self.AdjustToContents: Qt.HeaderResize.ResizeToContents,
+            self.AdjustToContentsOnFirstShow: Qt.HeaderResize.Interactive
+        }
+        if policy in policy_map:
+            mode = policy_map[policy]
+            self.horizontalHeader().setSectionResizeMode(mode)
+            self.verticalHeader().setSectionResizeMode(mode)
+            self.log_event("TABLE_SIZE_ADJUST_POLICY", policy)
+
+
+'''—————————————————————————————————————————————分割线———————————————————————————————————————————————————————————————'''
+
+
 class QSimApplication:
     def __init__(self, args):
         QSimLayout._logs.clear()
@@ -305,7 +496,6 @@ class QSimApplication:
     def exec_(self):
         self.log_event("APP_EXEC")
         return 0
-
 
 
 QWidget = QSimWidget

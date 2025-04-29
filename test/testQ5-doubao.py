@@ -3,7 +3,7 @@ import sys
 
 import output_log
 from qsim.widgets import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox,
-                        QApplication, Qt, QPixmap, QColor, QGroupBox, QCheckBox, QComboBox, QStatusBar)
+                          QApplication, Qt, QPixmap, QColor, QGroupBox, QCheckBox, QComboBox, QStatusBar)
 
 
 class ImageViewer(QWidget):

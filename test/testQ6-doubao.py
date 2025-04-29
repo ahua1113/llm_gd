@@ -1,5 +1,10 @@
+import os
 import sys
-from scrap.qsimlogger import (QWidget, QVBoxLayout, QApplication, QTableWidgetItem, QTableWidget)
+
+import output_log
+from qsim.widgets import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox,
+                          QApplication, Qt, QPixmap, QColor, QGroupBox, QCheckBox,
+                          QComboBox, QStatusBar, QTableWidgetItem, QTableWidget)
 
 
 class DataTable(QWidget):
@@ -32,7 +37,7 @@ class DataTable(QWidget):
 
         # 表格宽度占满窗口
         table.horizontalHeader().setStretchLastSection(True)
-        table.horizontalHeader().setSectionResizeMode(QTableWidget.Stretch)
+        table.horizontalHeader().setSectionResizeMode(Qt.HeaderResize.Stretch)
 
         # 布局
         layout = QVBoxLayout()
@@ -48,4 +53,7 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     dt = DataTable()
     dt.show()
-    sys.exit(app.exec_())
+    app.exec_()
+
+    current_file = os.path.basename(__file__)
+    output_log.writeLog(current_file)
