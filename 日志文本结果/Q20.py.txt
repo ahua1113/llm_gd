@@ -1,0 +1,44 @@
+[WIDGET_CREATED] ComplexFormDemo
+[WIDGET_CREATED] QSimLabel
+[LABEL_CREATED] Name:
+[WIDGET_CREATED] QSimLabel
+[LABEL_CREATED] Country:
+[WIDGET_CREATED] QSimLabel
+[LABEL_CREATED] Notes:
+[WIDGET_CREATED] QSimLineEdit
+[LINEEDIT_CREATED] 
+[WIDGET_CREATED] QSimComboBox
+[COMBOBOX_CREATED] 
+[COMBOBOX_ITEM_ADDED] USA
+[COMBOBOX_INDEX_CHANGED] 0, USA
+[SIGNAL_EMIT] Emit with args: (0,)
+[COMBOBOX_ITEM_ADDED] China
+[COMBOBOX_ITEM_ADDED] UK
+[COMBOBOX_ITEMS_ADDED] 3
+[WIDGET_CREATED] QSimTextEdit
+[TEXTEDIT_CREATED] 
+[LAYOUT_CREATED] QSimGridLayout
+[GRID_LAYOUT_CREATED] QSimGridLayout
+[ADD_WIDGET] QSimLabel, stretch(0)
+[ADD_WIDGET] QSimLabel
+[GRID_ADD_WIDGET] QSimLabel, row=0, col=0, rowSpan=1, colSpan=1
+[ADD_WIDGET] QSimLineEdit, stretch(0)
+[ADD_WIDGET] QSimLineEdit
+[GRID_ADD_WIDGET] QSimLineEdit, row=0, col=1, rowSpan=1, colSpan=1
+[ADD_WIDGET] QSimLabel, stretch(0)
+[ADD_WIDGET] QSimLabel
+[GRID_ADD_WIDGET] QSimLabel, row=1, col=0, rowSpan=1, colSpan=1
+[ADD_WIDGET] QSimComboBox, stretch(0)
+[ADD_WIDGET] QSimComboBox
+[GRID_ADD_WIDGET] QSimComboBox, row=1, col=1, rowSpan=1, colSpan=1
+[ADD_WIDGET] QSimLabel, stretch(0)
+[ADD_WIDGET] QSimLabel
+[GRID_ADD_WIDGET] QSimLabel, row=2, col=0, rowSpan=1, colSpan=1
+[ADD_WIDGET] QSimTextEdit, stretch(0)
+[ADD_WIDGET] QSimTextEdit
+[GRID_ADD_WIDGET] QSimTextEdit, row=2, col=1, rowSpan=1, colSpan=1
+[SET_LAYOUT] QSimGridLayout
+[SET_SIZE] 450, 300
+[SET_TITLE] Complex Form Demo
+[WINDOW_SHOW] 
+[APP_EXEC] 

@@ -1,5 +1,5 @@
 from qsim.utils import QSimSignal
-from qsim.widgets import QSimWidget
+from qsim.widgets import (QSimWidget, QSimLayout)
 
 '''—————————————————————————————————————————————分割线———————————————————————————————————————————————————————————————'''
 '''日期编辑框组件'''
@@ -123,6 +123,9 @@ class QSimScrollArea(QSimWidget):
         self._widget = None  # 子部件
         self._horizontal_policy = "AsNeeded"  # 水平滚动条策略
         self._vertical_policy = "AsNeeded"  # 垂直滚动条策略
+
+        self._widget_resizable = False  # 新增属性：是否自动调整子部件大小
+
         self.widgetChanged = QSimSignal(QSimWidget)  # 子部件变化信号
         self.log_event("SCROLLAREA_CREATED")
 
@@ -162,6 +165,13 @@ class QSimScrollArea(QSimWidget):
     def verticalScrollBarPolicy(self):
         """获取当前垂直滚动条策略"""
         return self._vertical_policy
+
+    # 新增方法：设置是否自动调整子部件大小
+    def setWidgetResizable(self, resizable):
+        """设置是否自动调整子部件大小"""
+        if isinstance(resizable, bool) and resizable != self._widget_resizable:
+            self._widget_resizable = resizable
+            self.log_event("SCROLLAREA_WIDGET_RESIZABLE_SET", str(resizable))
 
 
 '''—————————————————————————————————————————————分割线———————————————————————————————————————————————————————————————'''
@@ -325,6 +335,20 @@ class QSimLCDNumber(QSimWidget):
 
     def segmentStyle(self):
         return self._segment_style
+
+    def display(self, value):
+        """设置显示数值并记录日志"""
+        self._value = value
+        # 生成标准日志条目
+        log_entry = {
+            'component': self,
+            'event': f"[DISPLAY_SET] {value}",
+            'path': []
+        }
+        QSimLayout._logs.append(log_entry)
+
+    def get_value(self):  # 可选：提供获取当前显示值的接口
+        return self._value
 
 
 '''—————————————————————————————————————————————分割线———————————————————————————————————————————————————————————————'''

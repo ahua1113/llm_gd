@@ -13,25 +13,25 @@ class QSimFont:
 
     def setItalic(self, enable):
         self._properties['italic'] = enable
-        self._log_change("ITALIC", enable)
+        self.log_event("ITALIC", enable)
 
     def setBold(self, enable):
         self._properties['bold'] = enable
-        self._log_change("BOLD", enable)
+        self.log_event("BOLD", enable)
 
     def setPointSize(self, size):
         self._properties['point_size'] = size
-        self._log_change("SIZE", size)
+        self.log_event("SIZE", size)
 
     def setFamily(self, family):
         self._properties['family'] = family
-        self._log_change("FAMILY", family)
+        self.log_event("FAMILY", family)
 
     def setUnderline(self, enable):
         self._properties['underline'] = enable
-        self._log_change("UNDERLINE", enable)
+        self.log_event("UNDERLINE", enable)
 
-    def _log_change(self, prop_type, value):
+    def log_event(self, prop_type, value):
         """统一记录字体属性变化"""
         entry = {
             'component': self,
@@ -47,18 +47,33 @@ class QSimFont:
 
 # 添加信号基类
 class QSimSignal:
-    def __init__(self, *types):
-        """构造信号时定义参数类型（如 QSimSignal(int) 表示传递整数）"""
-        self._types = types  # 存储期望的参数类型
-        self._handlers = []  # 信号连接的槽函数列表
+    def __init__(self, sender=None, *types):  # 新增sender参数
+        self._sender = sender  # 记录信号所属的组件
+        self._types = types
+        self._handlers = []
 
     def connect(self, handler):
+        """连接槽函数时记录日志"""
         self._handlers.append(handler)
+        # 记录日志
+        self.log_event("SIGNAL_CONNECT", f"Connected to {handler.__name__}")
 
     def emit(self, *args):
+        """触发信号时记录日志"""
+        # 生成日志条目
+        self.log_event("SIGNAL_EMIT", f"Emit with args: {args}")
+        # 调用槽函数
         for handler in self._handlers:
             handler(*args)
 
+    def log_event(self, event_type, details):
+        """统一记录信号事件到日志"""
+        entry = {
+            'component': self._sender,
+            'event': f"[{event_type}] {details}",
+            'path': self._sender.get_path() if hasattr(self._sender, 'get_path') else []
+        }
+        QSimLayout._logs.append(entry)
 
 # QSimColor 颜色模拟类
 class QSimColor:

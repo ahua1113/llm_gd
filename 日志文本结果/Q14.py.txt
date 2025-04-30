@@ -1,0 +1,45 @@
+[WIDGET_CREATED] ColorPickerDemo
+[WIDGET_CREATED] QSimSlider
+[SLIDER_CREATED] Horizontal
+[SLIDER_RANGE_SET] 0, 255
+[WIDGET_CREATED] QSimSlider
+[SLIDER_CREATED] Horizontal
+[SLIDER_RANGE_SET] 0, 255
+[WIDGET_CREATED] QSimSlider
+[SLIDER_CREATED] Horizontal
+[SLIDER_RANGE_SET] 0, 255
+[WIDGET_CREATED] QSimLabel
+[LABEL_CREATED] R:
+[WIDGET_CREATED] QSimLabel
+[LABEL_CREATED] G:
+[WIDGET_CREATED] QSimLabel
+[LABEL_CREATED] B:
+[WIDGET_CREATED] QSimFrame
+[FRAME_CREATED] 
+[STYLESHEET_SET] background-color: rgb(0, 0, 0);
+[LAYOUT_CREATED] QSimHBoxLayout
+[ADD_WIDGET] QSimLabel, stretch(0)
+[ADD_WIDGET] QSimLabel
+[ADD_WIDGET] QSimSlider, stretch(0)
+[ADD_WIDGET] QSimSlider
+[LAYOUT_CREATED] QSimHBoxLayout
+[ADD_WIDGET] QSimLabel, stretch(0)
+[ADD_WIDGET] QSimLabel
+[ADD_WIDGET] QSimSlider, stretch(0)
+[ADD_WIDGET] QSimSlider
+[LAYOUT_CREATED] QSimHBoxLayout
+[ADD_WIDGET] QSimLabel, stretch(0)
+[ADD_WIDGET] QSimLabel
+[ADD_WIDGET] QSimSlider, stretch(0)
+[ADD_WIDGET] QSimSlider
+[LAYOUT_CREATED] QSimVBoxLayout
+[ADD_LAYOUT] QSimHBoxLayout
+[ADD_LAYOUT] QSimHBoxLayout
+[ADD_LAYOUT] QSimHBoxLayout
+[ADD_WIDGET] QSimFrame, stretch(0)
+[ADD_WIDGET] QSimFrame
+[SET_LAYOUT] QSimVBoxLayout
+[SET_SIZE] 400, 200
+[SET_TITLE] Color Picker Demo
+[WINDOW_SHOW] 
+[APP_EXEC] 

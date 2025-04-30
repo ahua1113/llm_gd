@@ -1,0 +1,18 @@
+[WIDGET_CREATED] NotificationBox
+[STYLESHEET_SET] background-color: #FFFFCC; border-radius: 10px;
+[WIDGET_CREATED] QSimLabel
+[LABEL_CREATED] [!]
+[STYLESHEET_SET] font-size: 24px;
+[WIDGET_CREATED] QSimLabel
+[LABEL_CREATED] System maintenance
+Scheduled at 3:00 AM
+[LAYOUT_CREATED] QSimHBoxLayout
+[ADD_WIDGET] QSimLabel, stretch(0)
+[ADD_WIDGET_ALIGNMENT] QSimLabel, AlignTop
+[ADD_WIDGET] QSimLabel, stretch(0)
+[ADD_WIDGET_ALIGNMENT] QSimLabel, AlignTop
+[SET_LAYOUT] QSimHBoxLayout
+[SET_SIZE] 350, 100
+[SET_TITLE] Notification Box
+[WINDOW_SHOW] 
+[APP_EXEC] 

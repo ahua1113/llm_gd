@@ -1,0 +1,54 @@
+[WIDGET_CREATED] FilterPanel
+[WIDGET_CREATED] QSimGroupBox
+[GROUPBOX_CREATED] Filter Options
+[WIDGET_CREATED] QSimLabel
+[LABEL_CREATED] From:
+[WIDGET_CREATED] QSimLineEdit
+[LINEEDIT_CREATED] 
+[WIDGET_CREATED] QSimLabel
+[LABEL_CREATED] To:
+[WIDGET_CREATED] QSimLineEdit
+[LINEEDIT_CREATED] 
+[WIDGET_CREATED] QSimLabel
+[LABEL_CREATED] Category:
+[WIDGET_CREATED] QSimCheckBox
+[CHECKBOX_CREATED] A
+[WIDGET_CREATED] QSimCheckBox
+[CHECKBOX_CREATED] B
+[WIDGET_CREATED] QSimCheckBox
+[CHECKBOX_CREATED] C
+[LAYOUT_CREATED] QSimGridLayout
+[GRID_LAYOUT_CREATED] QSimGridLayout
+[ADD_WIDGET] QSimLabel, stretch(0)
+[ADD_WIDGET] QSimLabel
+[GRID_ADD_WIDGET] QSimLabel, row=0, col=0, rowSpan=1, colSpan=1
+[ADD_WIDGET] QSimLineEdit, stretch(0)
+[ADD_WIDGET] QSimLineEdit
+[GRID_ADD_WIDGET] QSimLineEdit, row=0, col=1, rowSpan=1, colSpan=1
+[ADD_WIDGET] QSimLabel, stretch(0)
+[ADD_WIDGET] QSimLabel
+[GRID_ADD_WIDGET] QSimLabel, row=0, col=2, rowSpan=1, colSpan=1
+[ADD_WIDGET] QSimLineEdit, stretch(0)
+[ADD_WIDGET] QSimLineEdit
+[GRID_ADD_WIDGET] QSimLineEdit, row=0, col=3, rowSpan=1, colSpan=1
+[ADD_WIDGET] QSimLabel, stretch(0)
+[ADD_WIDGET] QSimLabel
+[GRID_ADD_WIDGET] QSimLabel, row=1, col=0, rowSpan=1, colSpan=1
+[ADD_WIDGET] QSimCheckBox, stretch(0)
+[ADD_WIDGET] QSimCheckBox
+[GRID_ADD_WIDGET] QSimCheckBox, row=1, col=1, rowSpan=1, colSpan=1
+[ADD_WIDGET] QSimCheckBox, stretch(0)
+[ADD_WIDGET] QSimCheckBox
+[GRID_ADD_WIDGET] QSimCheckBox, row=1, col=2, rowSpan=1, colSpan=1
+[ADD_WIDGET] QSimCheckBox, stretch(0)
+[ADD_WIDGET] QSimCheckBox
+[GRID_ADD_WIDGET] QSimCheckBox, row=1, col=3, rowSpan=1, colSpan=1
+[SET_LAYOUT] QSimGridLayout
+[LAYOUT_CREATED] QSimVBoxLayout
+[ADD_WIDGET] QSimGroupBox, stretch(0)
+[ADD_WIDGET] QSimGroupBox
+[SET_LAYOUT] QSimVBoxLayout
+[SET_MIN_WIDTH] 500
+[SET_TITLE] Filter Panel
+[WINDOW_SHOW] 
+[APP_EXEC] 

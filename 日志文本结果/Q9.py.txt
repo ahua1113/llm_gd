@@ -1,0 +1,35 @@
+[WIDGET_CREATED] ToolbarDemo
+[WIDGET_CREATED] QSimPushButton
+[BUTTON_CREATED] [Icon]
+[WIDGET_CREATED] QSimPushButton
+[BUTTON_CREATED] [Icon]
+[WIDGET_CREATED] QSimPushButton
+[BUTTON_CREATED] [Icon]
+[WIDGET_CREATED] QSimPushButton
+[BUTTON_CREATED] [Icon]
+[WIDGET_CREATED] QSimPushButton
+[BUTTON_CREATED] [Icon]
+[LAYOUT_CREATED] QSimHBoxLayout
+[ADD_WIDGET] QSimPushButton, stretch(0)
+[ADD_WIDGET] QSimPushButton
+[ADD_WIDGET] QSimPushButton, stretch(0)
+[ADD_WIDGET] QSimPushButton
+[ADD_WIDGET] QSimPushButton, stretch(0)
+[ADD_WIDGET] QSimPushButton
+[ADD_WIDGET] QSimPushButton, stretch(0)
+[ADD_WIDGET] QSimPushButton
+[ADD_WIDGET] QSimPushButton, stretch(0)
+[ADD_WIDGET] QSimPushButton
+[WIDGET_CREATED] QSimLabel
+[LABEL_CREATED] 
+[STYLESHEET_SET] border-bottom: 1px solid gray;
+[SET_FIXED_HEIGHT] 1
+[LAYOUT_CREATED] QSimVBoxLayout
+[ADD_LAYOUT] QSimHBoxLayout
+[ADD_WIDGET] QSimLabel, stretch(0)
+[ADD_WIDGET] QSimLabel
+[SET_LAYOUT] QSimVBoxLayout
+[SET_SIZE] 600, 80
+[SET_TITLE] Toolbar Demo
+[WINDOW_SHOW] 
+[APP_EXEC] 

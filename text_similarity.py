@@ -31,8 +31,8 @@ def text_cosine_similarity(file_path1, file_path2):
 
 '''
 路径示例参考
-file_path1 = '日志文本结果/testQ5-deepseek.py.txt'
-file_path2 = '日志文本结果/testQ5-doubao.py.txt'
+file_path1 = '日志文本结果/testQ-deepseek.py.txt'
+file_path2 = '日志文本结果/testQ-doubao.py.txt'
 '''
 
 
@@ -43,6 +43,6 @@ def compare_text_similarity(file_path1, file_path2):
         print(f"两个文本文件内容的余弦相似度为: {similarity}")
 
 
-file1 = '日志文本结果/testQ8-ds.py.txt'
-file2 = '日志文本结果/testQ8-db.py.txt'
+file1 = '日志文本结果/testQ-ds.py.txt'
+file2 = '日志文本结果/testQ-db.py.txt'
 compare_text_similarity(file1, file2)

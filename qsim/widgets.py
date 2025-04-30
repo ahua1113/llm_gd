@@ -1,7 +1,7 @@
 from functools import cmp_to_key
 
 from qsim.utils import (QSimFont, QSimSignal, QSimColor, QSimPixmap)
-from qsim.layouts import (QSimHBoxLayout, QSimVBoxLayout, QSimLayout)
+from qsim.layouts import (QSimHBoxLayout, QSimVBoxLayout, QSimLayout, QSimGridLayout)
 from qsim.enums import Qt
 
 
@@ -162,6 +162,7 @@ class QSimPushButton(QSimWidget):
     def __init__(self, text=""):
         super().__init__()
         self._text = text
+        self.clicked = QSimSignal()  # 点击信号
         self.log_event("BUTTON_CREATED", text)
 
 
@@ -852,13 +853,13 @@ class QSimListWidget(QSimWidget):
         self._items = []
         self._current_row = -1
         self.itemClicked = QSimSignal(QSimListWidgetItem)  # 点击项信号
-        self.currentRowChanged = QSimSignal(int)          # 当前行变化信号
+        self.currentRowChanged = QSimSignal(int)  # 当前行变化信号
         self.log_event("LISTWIDGET_CREATED")
 
     def addItem(self, text):
         item = QSimListWidgetItem(text)
         self._items.append(item)
-        self.log_event("LISTWIDGET_ITEM_ADDED", text, f"row={len(self._items)-1}")
+        self.log_event("LISTWIDGET_ITEM_ADDED", text, f"row={len(self._items) - 1}")
 
     def addItems(self, texts):
         for text in texts:
@@ -926,6 +927,12 @@ QComboBox = QSimComboBox
 QStatusBar = QSimStatusBar
 QProgressBar = QSimProgressBar
 QTabWidget = QSimTabWidget
+QGridLayout = QSimGridLayout
+QSlider = QSimSlider
+QSpinBox = QSimSpinBox
+QRadioButton = QSimRadioButton
+QFrame = QSimFrame
+QListWidget = QSimListWidget
 
 
 # 为了方便导入，在组件类中取日志
