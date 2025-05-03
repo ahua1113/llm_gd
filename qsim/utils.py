@@ -75,6 +75,7 @@ class QSimSignal:
         }
         QSimLayout._logs.append(entry)
 
+
 # QSimColor 颜色模拟类
 class QSimColor:
     def __init__(self, r, g, b):

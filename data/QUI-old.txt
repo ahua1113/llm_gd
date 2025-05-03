@@ -10,9 +10,12 @@ class LoginForm(QWidget):
     5. 所有元素垂直居中，窗口固定为300x250
     """
 注：所有可能涉及到的组件这样导入：
-from qsim.widgets import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor)
-用 "if __name__ == '__main__':" 启动界面
-
+from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSignal, QSimColor, QSimPixmap, QSimLabel,
+                          QSimHBoxLayout, QSimVBoxLayout, QSimWidget, QSimFontComboBox, QSimRadioButton, QSimPushButton,
+                          QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
+                          QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
+                          QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
+用if __name__ == '__main__':启动界面
 
 Q2/字体选择器
 class FontSelectorDemo(QWidget):
@@ -23,9 +26,11 @@ class FontSelectorDemo(QWidget):
     4. 窗口固定尺寸300x150
     """
 注：所有可能涉及到的组件这样导入：
-from qsim.widgets import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor)
-用 "if __name__ == '__main__':" 启动界面
-
+from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSignal, QSimColor, QSimPixmap, QSimLabel,
+                          QSimHBoxLayout, QSimVBoxLayout, QSimWidget, QSimFontComboBox, QSimRadioButton, QSimPushButton,
+                          QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
+                          QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
+                          QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
 
 Q3/信息展示卡片
 class ProfileCard(QWidget):
@@ -36,8 +41,11 @@ class ProfileCard(QWidget):
     4. 窗口固定尺寸200x220
     """
 注：所有可能涉及到的组件这样导入：
-from qsim.widgets import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor)
-用 "if __name__ == '__main__':" 启动界面
+from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSignal, QSimColor, QSimPixmap, QSimLabel,
+                          QSimHBoxLayout, QSimVBoxLayout, QSimWidget, QSimFontComboBox, QSimRadioButton, QSimPushButton,
+                          QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
+                          QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
+                          QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
 
 
 Q4/设置面板
@@ -50,8 +58,11 @@ class SettingsPanel(QWidget):
     3. 所有控件使用垂直布局，窗口宽度固定为400
     """
 注：所有可能涉及到的组件这样导入：
-from qsim.widgets import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor, QGroupBox, QCheckBox, QComboBox)
-用 "if __name__ == '__main__':" 启动界面
+from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSignal, QSimColor, QSimPixmap, QSimLabel,
+                          QSimHBoxLayout, QSimVBoxLayout, QSimWidget, QSimFontComboBox, QSimRadioButton, QSimPushButton,
+                          QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
+                          QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
+                          QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
 
 
 Q5/图片查看器框架
@@ -63,8 +74,11 @@ class ImageViewer(QWidget):
     4. 窗口尺寸锁定为250x300
     """
 注：所有可能涉及到的组件这样导入：
-from qsim.widgets import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor, QGroupBox, QCheckBox, QComboBox, QStatusBar)
-用 "if __name__ == '__main__':" 启动界面
+from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSignal, QSimColor, QSimPixmap, QSimLabel,
+                          QSimHBoxLayout, QSimVBoxLayout, QSimWidget, QSimFontComboBox, QSimRadioButton, QSimPushButton,
+                          QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
+                          QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
+                          QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
 
 
 Q6/数据表格展示
@@ -76,10 +90,11 @@ class DataTable(QWidget):
     4. 窗口尺寸设置为500x200
     """
 注：所有可能涉及到的组件这样导入：
-from qsim.widgets import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox,
-                          QApplication, Qt, QPixmap, QColor, QGroupBox, QCheckBox,
-                          QComboBox, QStatusBar, QTableWidgetItem, QTableWidget)
-且显示界面以 app.exec_() 结尾，即不关闭界面
+from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSignal, QSimColor, QSimPixmap, QSimLabel,
+                          QSimHBoxLayout, QSimVBoxLayout, QSimWidget, QSimFontComboBox, QSimRadioButton, QSimPushButton,
+                          QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
+                          QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
+                          QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
 
 
 Q7/进度指示器
@@ -91,8 +106,11 @@ class ProgressIndicator(QWidget):
     4. 所有元素垂直居中，窗口高度固定为150
     """
 注：所有可能涉及到的组件这样导入：
-from qsim.widgets import QWidget, QLabel, QProgressBar, QVBoxLayout, QApplication, QFont, Qt
-且显示界面以 app.exec_() 结尾，即不关闭界面
+from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSignal, QSimColor, QSimPixmap, QSimLabel,
+                          QSimHBoxLayout, QSimVBoxLayout, QSimWidget, QSimFontComboBox, QSimRadioButton, QSimPushButton,
+                          QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
+                          QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
+                          QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
 
 
 Q8/选项卡容器
@@ -104,10 +122,11 @@ class TabDemo(QWidget):
     4. 选项卡宽度适应窗口（固定尺寸400x300）
     """
 注：所有可能涉及到的组件这样导入：
-from qsim.widgets import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox,
-                          QApplication, Qt, QPixmap, QColor, QGroupBox, QCheckBox, QTabWidget
-                          QComboBox, QStatusBar, QTableWidgetItem, QTableWidget)
-且显示界面以 app.exec_() 结尾，即不关闭界面
+from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSignal, QSimColor, QSimPixmap, QSimLabel,
+                          QSimHBoxLayout, QSimVBoxLayout, QSimWidget, QSimFontComboBox, QSimRadioButton, QSimPushButton,
+                          QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
+                          QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
+                          QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
 
 
 Q9/工具按钮栏
@@ -118,6 +137,12 @@ class ToolbarDemo(QWidget):
     3. 底部显示细灰色分隔线
     4. 窗口宽度固定为600，高度80
     """
+注：所有可能涉及到的组件这样导入：
+from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSignal, QSimColor, QSimPixmap, QSimLabel,
+                          QSimHBoxLayout, QSimVBoxLayout, QSimWidget, QSimFontComboBox, QSimRadioButton, QSimPushButton,
+                          QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
+                          QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
+                          QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
 
 
 Q10/消息通知框
@@ -128,6 +153,12 @@ class NotificationBox(QWidget):
     3. 右侧显示多行文本："System maintenance\nScheduled at 3:00 AM"
     4. 窗口尺寸固定为350x100
     """
+注：所有可能涉及到的组件这样导入：
+from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSignal, QSimColor, QSimPixmap, QSimLabel,
+                          QSimHBoxLayout, QSimVBoxLayout, QSimWidget, QSimFontComboBox, QSimRadioButton, QSimPushButton,
+                          QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
+                          QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
+                          QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
 
 
 Q11/搜索过滤器面板
@@ -139,6 +170,12 @@ class FilterPanel(QWidget):
     4. 使用网格布局对齐所有标签和输入框
     5. 窗口最小宽度设置为500
     """
+注：所有可能涉及到的组件这样导入：
+from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSignal, QSimColor, QSimPixmap, QSimLabel,
+                          QSimHBoxLayout, QSimVBoxLayout, QSimWidget, QSimFontComboBox, QSimRadioButton, QSimPushButton,
+                          QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
+                          QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
+                          QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
 
 
 Q12/数值输入面板
@@ -149,6 +186,12 @@ class NumberInputDemo(QWidget):
     3. 滑动条与数字输入框水平对齐
     4. 窗口固定尺寸300x100
     """
+注：所有可能涉及到的组件这样导入：
+from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSignal, QSimColor, QSimPixmap, QSimLabel,
+                          QSimHBoxLayout, QSimVBoxLayout, QSimWidget, QSimFontComboBox, QSimRadioButton, QSimPushButton,
+                          QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
+                          QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
+                          QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
 
 
 Q13/单选按钮组
@@ -159,6 +202,12 @@ class RadioGroupDemo(QWidget):
     3. 默认选中Male
     4. 窗口宽度固定为200
     """
+注：所有可能涉及到的组件这样导入：
+from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSignal, QSimColor, QSimPixmap, QSimLabel,
+                          QSimHBoxLayout, QSimVBoxLayout, QSimWidget, QSimFontComboBox, QSimRadioButton, QSimPushButton,
+                          QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
+                          QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
+                          QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
 
 
 Q14/颜色选择器布局
@@ -169,6 +218,12 @@ class ColorPickerDemo(QWidget):
     3. 右侧显示当前颜色预览方块（QFrame）
     4. 窗口固定尺寸400x200
     """
+注：所有可能涉及到的组件这样导入：
+from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSignal, QSimColor, QSimPixmap, QSimLabel,
+                          QSimHBoxLayout, QSimVBoxLayout, QSimWidget, QSimFontComboBox, QSimRadioButton, QSimPushButton,
+                          QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
+                          QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
+                          QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
 
 
 Q15/列表选择器
@@ -179,6 +234,12 @@ class ListSelectorDemo(QWidget):
     3. 中间垂直排列"Add>>"和"<<Remove"按钮
     4. 窗口固定尺寸500x300
     """
+注：所有可能涉及到的组件这样导入：
+from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSignal, QSimColor, QSimPixmap, QSimLabel,
+                          QSimHBoxLayout, QSimVBoxLayout, QSimWidget, QSimFontComboBox, QSimRadioButton, QSimPushButton,
+                          QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
+                          QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
+                          QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
 
 
 Q16/日历组件布局
@@ -189,6 +250,12 @@ class CalendarDemo(QWidget):
     3. 使用垂直布局间隔10px
     4. 窗口固定尺寸400x350
     """
+注：所有可能涉及到的组件这样导入：
+from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSignal, QSimColor, QSimPixmap, QSimLabel,
+                          QSimHBoxLayout, QSimVBoxLayout, QSimWidget, QSimFontComboBox, QSimRadioButton, QSimPushButton,
+                          QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
+                          QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
+                          QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
 
 
 Q17/滚动区域示例
@@ -199,6 +266,12 @@ class ScrollAreaDemo(QWidget):
     3. 主窗口固定尺寸300x250
     4. 显示垂直滚动条
     """
+注：所有可能涉及到的组件这样导入：
+from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSignal, QSimColor, QSimPixmap, QSimLabel,
+                          QSimHBoxLayout, QSimVBoxLayout, QSimWidget, QSimFontComboBox, QSimRadioButton, QSimPushButton,
+                          QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
+                          QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
+                          QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
 
 
 Q18/分屏界面布局
@@ -209,6 +282,12 @@ class SplitViewDemo(QWidget):
     3. 右侧默认显示"Right Panel"文本
     4. 窗口固定尺寸600x400
     """
+注：所有可能涉及到的组件这样导入：
+from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSignal, QSimColor, QSimPixmap, QSimLabel,
+                          QSimHBoxLayout, QSimVBoxLayout, QSimWidget, QSimFontComboBox, QSimRadioButton, QSimPushButton,
+                          QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
+                          QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
+                          QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
 
 
 Q19/数字仪表盘
@@ -219,6 +298,12 @@ class DigitalDashboard(QWidget):
     3. 所有元素垂直居中
     4. 窗口固定尺寸200x250
     """
+注：所有可能涉及到的组件这样导入：
+from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSignal, QSimColor, QSimPixmap, QSimLabel,
+                          QSimHBoxLayout, QSimVBoxLayout, QSimWidget, QSimFontComboBox, QSimRadioButton, QSimPushButton,
+                          QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
+                          QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
+                          QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
 
 
 Q20/多格式输入表单
@@ -229,36 +314,19 @@ class ComplexFormDemo(QWidget):
     3. 国家下拉框包含3个示例选项
     4. 窗口固定尺寸450x300
     """
+注：所有可能涉及到的组件这样导入：
+from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSignal, QSimColor, QSimPixmap, QSimLabel,
+                          QSimHBoxLayout, QSimVBoxLayout, QSimWidget, QSimFontComboBox, QSimRadioButton, QSimPushButton,
+                          QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
+                          QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
+                          QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
 
 
 
 
 QUI/L2 单事件绑定  （20）
-Q21/颜色切换器
-class CircleWidget(QWidget):
-    """生成包含两个按钮和一个圆形的界面，按钮点击可改变圆形颜色
-
-    要求：
-    1. 界面包含两个按钮："Turn Blue"和"Reset"
-    2. 圆形初始颜色为黑色
-    3. 点击"Turn Blue"按钮后圆形变为蓝色（库中"blue"对应蓝色）
-    4. 点击"Reset"按钮恢复黑色
-
-    验证方式：通过控件属性检查实现功能验证
-    """
 
 
 
 
 QUI/L3 动态状态 + 条件渲染   （20）
-Q41/计数器系统
-class CounterWidget(QWidget):
-    """实现带加减控制的计数器
-
-    要求：
-    1. 显示当前数值（初始0）
-    2. "+"按钮每次增加1
-    3. "-"按钮每次减少1
-    4. 数值超过10显示红色，低于0显示绿色
-    5. 包含"Reset"按钮归零
-    """

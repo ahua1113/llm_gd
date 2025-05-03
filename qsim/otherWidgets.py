@@ -416,12 +416,3 @@ class QSimDial(QSimWidget):
 
 
 '''—————————————————————————————————————————————分割线———————————————————————————————————————————————————————————————'''
-
-
-QLCDNumber = QSimLCDNumber
-QDial = QSimDial
-QSplitter = QSimSplitter
-QTextEdit = QSimTextEdit
-QScrollArea = QSimScrollArea
-QCalendarWidget = QSimCalendarWidget
-QDateEdit = QSimDateEdit

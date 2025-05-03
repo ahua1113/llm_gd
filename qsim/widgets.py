@@ -334,7 +334,7 @@ class QSimStatusBar(QSimWidget):
 '''表格组件类'''
 
 
-class QTableWidgetItem:
+class QSimTableWidgetItem:
     """表格单元格项"""
 
     def __init__(self, text=""):
@@ -353,7 +353,7 @@ class QTableWidgetItem:
         self._alignment = align_map.get(alignment, "未知对齐")
 
 
-class QHeaderView(QSimWidget):
+class QSimHeaderView(QSimWidget):
     """模拟表头组件"""
     Interactive = 0
     Fixed = 1
@@ -402,7 +402,7 @@ class QHeaderView(QSimWidget):
         self.log_event("HEADER_RESIZE_MODE", self._resize_mode)
 
 
-class QTableWidget(QSimWidget):
+class QSimTableWidget(QSimWidget):
     # 新增调整策略常量
     AdjustToContents = "AdjustToContents"
     AdjustToContentsOnFirstShow = "AdjustToContentsOnFirstShow"
@@ -908,31 +908,6 @@ class QSimApplication:
     def exec_(self):
         self.log_event("APP_EXEC")
         return 0
-
-
-QWidget = QSimWidget
-QLabel = QSimLabel
-QLineEdit = QSimLineEdit
-QPushButton = QSimPushButton
-QVBoxLayout = QSimVBoxLayout
-QHBoxLayout = QSimHBoxLayout
-QFont = QSimFont
-QApplication = QSimApplication
-QFontComboBox = QSimFontComboBox
-QColor = QSimColor
-QPixmap = QSimPixmap
-QGroupBox = QSimGroupBox
-QCheckBox = QSimCheckBox
-QComboBox = QSimComboBox
-QStatusBar = QSimStatusBar
-QProgressBar = QSimProgressBar
-QTabWidget = QSimTabWidget
-QGridLayout = QSimGridLayout
-QSlider = QSimSlider
-QSpinBox = QSimSpinBox
-QRadioButton = QSimRadioButton
-QFrame = QSimFrame
-QListWidget = QSimListWidget
 
 
 # 为了方便导入，在组件类中取日志
