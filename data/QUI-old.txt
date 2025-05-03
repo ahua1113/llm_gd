@@ -1,4 +1,4 @@
-QUI/L1 静态布局 （21）
+QUI/L1 静态布局 （20）
 
 Q1/登录表单布局
 class LoginForm(QWidget):
