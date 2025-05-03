@@ -1,0 +1,32 @@
+[WIDGET_CREATED] LoginForm
+[LAYOUT_CREATED] QSimVBoxLayout
+[LAYOUT_ALIGNMENT_SET] AlignCenter
+[WIDGET_CREATED] QSimLabel
+[LABEL_CREATED] Login
+[ADD_WIDGET] QSimLabel, stretch(0)
+[ADD_WIDGET] QSimLabel
+[WIDGET_CREATED] QSimLineEdit
+[LINEEDIT_CREATED] 
+[PLACEHOLDER_SET] Enter username
+[ADD_WIDGET] QSimLineEdit, stretch(0)
+[ADD_WIDGET] QSimLineEdit
+[WIDGET_CREATED] QSimLineEdit
+[LINEEDIT_CREATED] 
+[PLACEHOLDER_SET] Enter password
+[ECHO_MODE_SET] Password
+[ADD_WIDGET] QSimLineEdit, stretch(0)
+[ADD_WIDGET] QSimLineEdit
+[LAYOUT_CREATED] QSimHBoxLayout
+[WIDGET_CREATED] QSimPushButton
+[BUTTON_CREATED] Cancel
+[WIDGET_CREATED] QSimPushButton
+[BUTTON_CREATED] Submit
+[ADD_WIDGET] QSimPushButton, stretch(0)
+[ADD_WIDGET] QSimPushButton
+[ADD_WIDGET] QSimPushButton, stretch(0)
+[ADD_WIDGET] QSimPushButton
+[ADD_LAYOUT] QSimHBoxLayout
+[SET_LAYOUT] QSimVBoxLayout
+[SET_SIZE] 300, 250
+[WINDOW_SHOW] 
+[APP_EXEC] 
