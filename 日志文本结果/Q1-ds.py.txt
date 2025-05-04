@@ -2,19 +2,24 @@
 [ADD_WIDGET] QSimPushButton
 [ADD_WIDGET] QSimPushButton, stretch(0)
 [ADD_WIDGET] QSimPushButton
+[LAYOUT_CREATED] QSimVBoxLayout
+[ADD_STRETCH] 0
 [ADD_WIDGET] QSimLabel, stretch(0)
 [ADD_WIDGET] QSimLabel
 [ADD_WIDGET] QSimLineEdit, stretch(0)
 [ADD_WIDGET] QSimLineEdit
 [ADD_WIDGET] QSimLineEdit, stretch(0)
 [ADD_WIDGET] QSimLineEdit
-[LAYOUT_CREATED] QSimHBoxLayout
 [ADD_LAYOUT] QSimHBoxLayout
+[ADD_STRETCH] 0
 [WIDGET_CREATED] LoginForm
-[LAYOUT_CREATED] QSimVBoxLayout
-[LAYOUT_ALIGNMENT_SET] AlignCenter
+[SET_SIZE] 300, 250
 [WIDGET_CREATED] QSimLabel
 [LABEL_CREATED] Login
+[ALIGNMENT_SET] Center
+[FONT_BOLD_SET] True
+[FONT_SIZE_SET] 16
+[FONT_SET] {'family': 'Arial', 'point_size': 16, 'bold': True, 'italic': False, 'underline': False}
 [WIDGET_CREATED] QSimLineEdit
 [LINEEDIT_CREATED] 
 [PLACEHOLDER_SET] Enter username
@@ -26,7 +31,8 @@
 [BUTTON_CREATED] Cancel
 [WIDGET_CREATED] QSimPushButton
 [BUTTON_CREATED] Submit
+[LAYOUT_CREATED] QSimHBoxLayout
+[ADD_STRETCH] 0
 [SET_LAYOUT] QSimVBoxLayout
-[SET_SIZE] 300, 250
 [WINDOW_SHOW] 
 [APP_EXEC] 

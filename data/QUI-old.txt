@@ -1,7 +1,7 @@
 QUI/L1 静态布局 （20）
 
 Q1/登录表单布局
-class LoginForm(QWidget):
+class LoginForm(QSimWidget):
     """创建包含以下元素的静态登录界面：
     1. 顶部标题"Login"
     2. 用户名输入框（占位文本：Enter username）
@@ -18,7 +18,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
 用if __name__ == '__main__':启动界面
 
 Q2/字体选择器
-class FontSelectorDemo(QWidget):
+class FontSelectorDemo(QSimWidget):
     """创建字体选择界面：
     1. 顶部标签"选择字体："（左对齐，12pt）
     2. 下方显示QFontComboBox控件
@@ -33,7 +33,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
                           QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
 
 Q3/信息展示卡片
-class ProfileCard(QWidget):
+class ProfileCard(QSimWidget):
     """创建用户信息卡片：
     1. 头像区域（灰色矩形，尺寸100x100）
     2. 下方显示姓名（居中对齐，14pt字体）
@@ -49,7 +49,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
 
 
 Q4/设置面板
-class SettingsPanel(QWidget):
+class SettingsPanel(QSimWidget):
     """生成包含三组选项的静态面板：
     1. "Preferences"分组框包含：
        - 复选框"Dark Mode"
@@ -66,7 +66,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
 
 
 Q5/图片查看器框架
-class ImageViewer(QWidget):
+class ImageViewer(QSimWidget):
     """构建图片展示框架：
     1. 顶部标签"Placeholder Image"（斜体灰色）
     2. 中央显示200x200的灰色矩形区域
@@ -82,7 +82,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
 
 
 Q6/数据表格展示
-class DataTable(QWidget):
+class DataTable(QSimWidget):
     """创建固定数据表格：
     1. 3列表格：Name | Age | Department
     2. 预填充两行示例数据 data = [['Alice', '25', 'HR'],['Bob', '30', 'IT']]
@@ -98,7 +98,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
 
 
 Q7/进度指示器
-class ProgressIndicator(QWidget):
+class ProgressIndicator(QSimWidget):
     """展示进度相关控件：
     1. 顶部标签"Processing..."（蓝色文本）
     2. 横向进度条显示50%进度
@@ -114,7 +114,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
 
 
 Q8/选项卡容器
-class TabDemo(QWidget):
+class TabDemo(QSimWidget):
     """构建基础选项卡布局：
     1. 两个选项卡页："General" 和 "Advanced"
     2. General页包含"Settings"分组框（空内容）
@@ -130,7 +130,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
 
 
 Q9/工具按钮栏
-class ToolbarDemo(QWidget):
+class ToolbarDemo(QSimWidget):
     """创建水平工具按钮组：
     1. 五个图标按钮（使用文本"[Icon]"代替实际图标）
     2. 按钮间隔均匀分布
@@ -146,7 +146,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
 
 
 Q10/消息通知框
-class NotificationBox(QWidget):
+class NotificationBox(QSimWidget):
     """构建消息通知样式：
     1. 浅黄色背景圆角矩形区域
     2. 内部包含警告三角形图标（文本"[!]"表示）
@@ -162,7 +162,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
 
 
 Q11/搜索过滤器面板
-class FilterPanel(QWidget):
+class FilterPanel(QSimWidget):
     """创建复杂筛选条件布局：
     1. "Filter Options"分组框
     2. 包含日期范围选择（两个并排日期输入框）
@@ -179,7 +179,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
 
 
 Q12/数值输入面板
-class NumberInputDemo(QWidget):
+class NumberInputDemo(QSimWidget):
     """创建数值输入界面：
     1. 使用QSpinBox和QSlider组合控制数值（范围0-100）
     2. 左侧显示"Value:"标签
@@ -195,7 +195,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
 
 
 Q13/单选按钮组
-class RadioGroupDemo(QWidget):
+class RadioGroupDemo(QSimWidget):
     """构建性别选择组件：
     1. "Gender"分组框包含三个单选按钮：Male/Female/Other
     2. 单选按钮垂直排列
@@ -211,7 +211,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
 
 
 Q14/颜色选择器布局
-class ColorPickerDemo(QWidget):
+class ColorPickerDemo(QSimWidget):
     """创建基础颜色选择器：
     1. 三个QSlider分别控制RGB数值
     2. 每个滑动条左侧显示颜色通道标签
@@ -227,7 +227,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
 
 
 Q15/列表选择器
-class ListSelectorDemo(QWidget):
+class ListSelectorDemo(QSimWidget):
     """构建双列列表选择器：
     1. 左侧QListWidget显示可选项目（示例：Item 1-5）
     2. 右侧QListWidget显示已选项目
@@ -243,7 +243,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
 
 
 Q16/日历组件布局
-class CalendarDemo(QWidget):
+class CalendarDemo(QSimWidget):
     """构建日历展示界面：
     1. 顶部显示QCalendarWidget（显示当前月）
     2. 下方显示日期选择控件QDateEdit
@@ -259,7 +259,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
 
 
 Q17/滚动区域示例
-class ScrollAreaDemo(QWidget):
+class ScrollAreaDemo(QSimWidget):
     """创建可滚动内容区域：
     1. QScrollArea包含20个带序号的QLabel
     2. 每个标签高度固定40px
@@ -275,7 +275,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
 
 
 Q18/分屏界面布局
-class SplitViewDemo(QWidget):
+class SplitViewDemo(QSimWidget):
     """创建分割视图：
     1. 使用QSplitter水平分割两个QTextEdit
     2. 左侧默认显示"Left Panel"文本
@@ -291,7 +291,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
 
 
 Q19/数字仪表盘
-class DigitalDashboard(QWidget):
+class DigitalDashboard(QSimWidget):
     """构建仪表显示组件：
     1. 使用QLCDNumber显示数字12345
     2. 下方显示QDial旋钮控件
@@ -307,7 +307,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
 
 
 Q20/多格式输入表单
-class ComplexFormDemo(QWidget):
+class ComplexFormDemo(QSimWidget):
     """创建混合输入表单：
     1. 包含QLineEdit（姓名）、QComboBox（国家）、QTextEdit（备注）
     2. 使用网格布局对齐所有标签和输入框

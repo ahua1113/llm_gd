@@ -3,7 +3,7 @@
 [ADD_WIDGET] QSimPushButton, stretch(0)
 [ADD_WIDGET] QSimPushButton
 [ADD_WIDGET] QSimLabel, stretch(0)
-[ADD_WIDGET] QSimLabel
+[ADD_WIDGET_ALIGNMENT] QSimLabel, Center
 [ADD_WIDGET] QSimLineEdit, stretch(0)
 [ADD_WIDGET] QSimLineEdit
 [ADD_WIDGET] QSimLineEdit, stretch(0)
@@ -12,7 +12,6 @@
 [ADD_LAYOUT] QSimHBoxLayout
 [WIDGET_CREATED] LoginForm
 [LAYOUT_CREATED] QSimVBoxLayout
-[LAYOUT_ALIGNMENT_SET] AlignCenter
 [WIDGET_CREATED] QSimLabel
 [LABEL_CREATED] Login
 [WIDGET_CREATED] QSimLineEdit

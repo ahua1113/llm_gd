@@ -1,7 +1,7 @@
 QUI/L1 静态布局 （20）
 
 Q1/登录表单布局
-class LoginForm(QWidget):
+class LoginForm(QSimWidget):
     """创建包含以下元素的静态登录界面：
     1. 顶部标题"Login"
     2. 用户名输入框（占位文本：Enter username）
@@ -10,12 +10,12 @@ class LoginForm(QWidget):
     5. 所有元素垂直居中，窗口固定为300x250
     """
 注：所有可能涉及到的组件这样导入：
-from qsim.widgets import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor)
+from qsim.widgets import (QSimWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor)
 用 "if __name__ == '__main__':" 启动界面
 
 
 Q2/字体选择器
-class FontSelectorDemo(QWidget):
+class FontSelectorDemo(QSimWidget):
     """创建字体选择界面：
     1. 顶部标签"选择字体："（左对齐，12pt）
     2. 下方显示QFontComboBox控件
@@ -23,12 +23,12 @@ class FontSelectorDemo(QWidget):
     4. 窗口固定尺寸300x150
     """
 注：所有可能涉及到的组件这样导入：
-from qsim.widgets import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor)
+from qsim.widgets import (QSimWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor)
 用 "if __name__ == '__main__':" 启动界面
 
 
 Q3/信息展示卡片
-class ProfileCard(QWidget):
+class ProfileCard(QSimWidget):
     """创建用户信息卡片：
     1. 头像区域（灰色矩形，尺寸100x100）
     2. 下方显示姓名（居中对齐，14pt字体）
@@ -36,12 +36,12 @@ class ProfileCard(QWidget):
     4. 窗口固定尺寸200x220
     """
 注：所有可能涉及到的组件这样导入：
-from qsim.widgets import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor)
+from qsim.widgets import (QSimWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor)
 用 "if __name__ == '__main__':" 启动界面
 
 
 Q4/设置面板
-class SettingsPanel(QWidget):
+class SettingsPanel(QSimWidget):
     """生成包含三组选项的静态面板：
     1. "Preferences"分组框包含：
        - 复选框"Dark Mode"
@@ -50,12 +50,12 @@ class SettingsPanel(QWidget):
     3. 所有控件使用垂直布局，窗口宽度固定为400
     """
 注：所有可能涉及到的组件这样导入：
-from qsim.widgets import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor, QGroupBox, QCheckBox, QComboBox)
+from qsim.widgets import (QSimWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor, QGroupBox, QCheckBox, QComboBox)
 用 "if __name__ == '__main__':" 启动界面
 
 
 Q5/图片查看器框架
-class ImageViewer(QWidget):
+class ImageViewer(QSimWidget):
     """构建图片展示框架：
     1. 顶部标签"Placeholder Image"（斜体灰色）
     2. 中央显示200x200的灰色矩形区域
@@ -63,12 +63,12 @@ class ImageViewer(QWidget):
     4. 窗口尺寸锁定为250x300
     """
 注：所有可能涉及到的组件这样导入：
-from qsim.widgets import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor, QGroupBox, QCheckBox, QComboBox, QStatusBar)
+from qsim.widgets import (QSimWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox, QApplication, Qt, QPixmap, QColor, QGroupBox, QCheckBox, QComboBox, QStatusBar)
 用 "if __name__ == '__main__':" 启动界面
 
 
 Q6/数据表格展示
-class DataTable(QWidget):
+class DataTable(QSimWidget):
     """创建固定数据表格：
     1. 3列表格：Name | Age | Department
     2. 预填充两行示例数据 data = [['Alice', '25', 'HR'],['Bob', '30', 'IT']]
@@ -76,14 +76,14 @@ class DataTable(QWidget):
     4. 窗口尺寸设置为500x200
     """
 注：所有可能涉及到的组件这样导入：
-from qsim.widgets import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox,
+from qsim.widgets import (QSimWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox,
                           QApplication, Qt, QPixmap, QColor, QGroupBox, QCheckBox,
                           QComboBox, QStatusBar, QTableWidgetItem, QTableWidget)
 且显示界面以 app.exec_() 结尾，即不关闭界面
 
 
 Q7/进度指示器
-class ProgressIndicator(QWidget):
+class ProgressIndicator(QSimWidget):
     """展示进度相关控件：
     1. 顶部标签"Processing..."（蓝色文本）
     2. 横向进度条显示50%进度
@@ -91,12 +91,12 @@ class ProgressIndicator(QWidget):
     4. 所有元素垂直居中，窗口高度固定为150
     """
 注：所有可能涉及到的组件这样导入：
-from qsim.widgets import QWidget, QLabel, QProgressBar, QVBoxLayout, QApplication, QFont, Qt
+from qsim.widgets import QSimWidget, QLabel, QProgressBar, QVBoxLayout, QApplication, QFont, Qt
 且显示界面以 app.exec_() 结尾，即不关闭界面
 
 
 Q8/选项卡容器
-class TabDemo(QWidget):
+class TabDemo(QSimWidget):
     """构建基础选项卡布局：
     1. 两个选项卡页："General" 和 "Advanced"
     2. General页包含"Settings"分组框（空内容）
@@ -104,14 +104,14 @@ class TabDemo(QWidget):
     4. 选项卡宽度适应窗口（固定尺寸400x300）
     """
 注：所有可能涉及到的组件这样导入：
-from qsim.widgets import (QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox,
+from qsim.widgets import (QSimWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout, QFont, QFontComboBox,
                           QApplication, Qt, QPixmap, QColor, QGroupBox, QCheckBox, QTabWidget
                           QComboBox, QStatusBar, QTableWidgetItem, QTableWidget)
 且显示界面以 app.exec_() 结尾，即不关闭界面
 
 
 Q9/工具按钮栏
-class ToolbarDemo(QWidget):
+class ToolbarDemo(QSimWidget):
     """创建水平工具按钮组：
     1. 五个图标按钮（使用文本"[Icon]"代替实际图标）
     2. 按钮间隔均匀分布
@@ -121,7 +121,7 @@ class ToolbarDemo(QWidget):
 
 
 Q10/消息通知框
-class NotificationBox(QWidget):
+class NotificationBox(QSimWidget):
     """构建消息通知样式：
     1. 浅黄色背景圆角矩形区域
     2. 内部包含警告三角形图标（文本"[!]"表示）
@@ -131,7 +131,7 @@ class NotificationBox(QWidget):
 
 
 Q11/搜索过滤器面板
-class FilterPanel(QWidget):
+class FilterPanel(QSimWidget):
     """创建复杂筛选条件布局：
     1. "Filter Options"分组框
     2. 包含日期范围选择（两个并排日期输入框）
@@ -142,7 +142,7 @@ class FilterPanel(QWidget):
 
 
 Q12/数值输入面板
-class NumberInputDemo(QWidget):
+class NumberInputDemo(QSimWidget):
     """创建数值输入界面：
     1. 使用QSpinBox和QSlider组合控制数值（范围0-100）
     2. 左侧显示"Value:"标签
@@ -152,7 +152,7 @@ class NumberInputDemo(QWidget):
 
 
 Q13/单选按钮组
-class RadioGroupDemo(QWidget):
+class RadioGroupDemo(QSimWidget):
     """构建性别选择组件：
     1. "Gender"分组框包含三个单选按钮：Male/Female/Other
     2. 单选按钮垂直排列
@@ -162,7 +162,7 @@ class RadioGroupDemo(QWidget):
 
 
 Q14/颜色选择器布局
-class ColorPickerDemo(QWidget):
+class ColorPickerDemo(QSimWidget):
     """创建基础颜色选择器：
     1. 三个QSlider分别控制RGB数值
     2. 每个滑动条左侧显示颜色通道标签
@@ -172,7 +172,7 @@ class ColorPickerDemo(QWidget):
 
 
 Q15/列表选择器
-class ListSelectorDemo(QWidget):
+class ListSelectorDemo(QSimWidget):
     """构建双列列表选择器：
     1. 左侧QListWidget显示可选项目（示例：Item 1-5）
     2. 右侧QListWidget显示已选项目
@@ -182,7 +182,7 @@ class ListSelectorDemo(QWidget):
 
 
 Q16/日历组件布局
-class CalendarDemo(QWidget):
+class CalendarDemo(QSimWidget):
     """构建日历展示界面：
     1. 顶部显示QCalendarWidget（显示当前月）
     2. 下方显示日期选择控件QDateEdit
@@ -192,7 +192,7 @@ class CalendarDemo(QWidget):
 
 
 Q17/滚动区域示例
-class ScrollAreaDemo(QWidget):
+class ScrollAreaDemo(QSimWidget):
     """创建可滚动内容区域：
     1. QScrollArea包含20个带序号的QLabel
     2. 每个标签高度固定40px
@@ -202,7 +202,7 @@ class ScrollAreaDemo(QWidget):
 
 
 Q18/分屏界面布局
-class SplitViewDemo(QWidget):
+class SplitViewDemo(QSimWidget):
     """创建分割视图：
     1. 使用QSplitter水平分割两个QTextEdit
     2. 左侧默认显示"Left Panel"文本
@@ -212,7 +212,7 @@ class SplitViewDemo(QWidget):
 
 
 Q19/数字仪表盘
-class DigitalDashboard(QWidget):
+class DigitalDashboard(QSimWidget):
     """构建仪表显示组件：
     1. 使用QLCDNumber显示数字12345
     2. 下方显示QDial旋钮控件
@@ -222,7 +222,7 @@ class DigitalDashboard(QWidget):
 
 
 Q20/多格式输入表单
-class ComplexFormDemo(QWidget):
+class ComplexFormDemo(QSimWidget):
     """创建混合输入表单：
     1. 包含QLineEdit（姓名）、QComboBox（国家）、QTextEdit（备注）
     2. 使用网格布局对齐所有标签和输入框
@@ -235,7 +235,7 @@ class ComplexFormDemo(QWidget):
 
 QUI/L2 单事件绑定  （20）
 Q21/颜色切换器
-class CircleWidget(QWidget):
+class CircleWidget(QSimWidget):
     """生成包含两个按钮和一个圆形的界面，按钮点击可改变圆形颜色
     1. 界面包含两个按钮："Turn Blue"和"Reset"
     2. 圆形初始颜色为黑色
@@ -245,7 +245,7 @@ class CircleWidget(QWidget):
 
 
 Q22/文本切换器
-class TextToggleWidget(QWidget):
+class TextToggleWidget(QSimWidget):
     """按钮文本切换系统
     1. 包含两个按钮："Toggle"和"Target"
     2. 点击"Toggle"按钮切换"Target"按钮的文本（"ON"/"OFF"）
@@ -255,7 +255,7 @@ class TextToggleWidget(QWidget):
 
 
 Q23/温度转换器
-class TempConverter(QWidget):
+class TempConverter(QSimWidget):
     """摄氏转华氏温度
     1. 输入框接收摄氏温度
     2. "转换"按钮触发计算（公式：F = C×1.8+32）
@@ -265,7 +265,7 @@ class TempConverter(QWidget):
 
 
 Q24/密码可见切换
-class PasswordVisibility(QWidget):
+class PasswordVisibility(QSimWidget):
     """密码显示控制
     1. 密码输入框默认隐藏字符
     2. 复选框控制显示明文/密文
@@ -275,7 +275,7 @@ class PasswordVisibility(QWidget):
 
 
 Q25/进度控制器
-class ProgressControl(QWidget):
+class ProgressControl(QSimWidget):
     """进度条控制系统
     1. 水平进度条（范围0-100）
     2. "+10"和"-10"按钮调整进度
@@ -285,7 +285,7 @@ class ProgressControl(QWidget):
 
 
 Q26/单选颜色控制器
-class RadioColorPicker(QWidget):
+class RadioColorPicker(QSimWidget):
     """单选按钮颜色控制
     1. 三个单选按钮（红/绿/蓝）
     2. 选中的颜色实时应用为背景色
@@ -295,7 +295,7 @@ class RadioColorPicker(QWidget):
 
 
 Q27/倒计时启动器
-class CountdownStarter(QWidget):
+class CountdownStarter(QSimWidget):
     """简单倒计时控制
     1. 显示"5"到"0"的倒计时标签
     2. "开始"按钮启动1秒间隔计时
@@ -305,7 +305,7 @@ class CountdownStarter(QWidget):
 
 
 Q28/列表项转换器
-class ListTransferWidget(QWidget):
+class ListTransferWidget(QSimWidget):
     """双列表项转移
     1. 左右两个列表控件（左列初始化3个选项）
     2. ">>"按钮移动选中项到右列
@@ -315,7 +315,7 @@ class ListTransferWidget(QWidget):
 
 
 Q29/字体缩放器
-class FontScaler(QWidget):
+class FontScaler(QSimWidget):
     """文本缩放系统
     1. 显示"Hello World"文本标签
     2. "+"按钮增大字号2pt
@@ -325,7 +325,7 @@ class FontScaler(QWidget):
 
 
 Q30/消息广播器
-class MessageBroadcaster(QWidget):
+class MessageBroadcaster(QSimWidget):
     """多接收者消息系统
     1. 文本输入框和"发送"按钮
     2. 三个接收标签同步显示消息
@@ -335,7 +335,7 @@ class MessageBroadcaster(QWidget):
 
 
 Q31/滑块同步器
-class SliderSyncWidget(QWidget):
+class SliderSyncWidget(QSimWidget):
     """双滑块数值同步
     1. 两个水平滑块（范围0-100）
     2. 标签显示当前滑块值
@@ -345,7 +345,7 @@ class SliderSyncWidget(QWidget):
 
 
 Q32/复选框控制组
-class CheckboxGroupWidget(QWidget):
+class CheckboxGroupWidget(QSimWidget):
     """多选控制系统
     1. 三个复选框（选项A/B/C）
     2. "全选"按钮选中所有选项
@@ -355,7 +355,7 @@ class CheckboxGroupWidget(QWidget):
 
 
 Q33/图片切换器
-class ImageSwitcher(QWidget):
+class ImageSwitcher(QSimWidget):
     """图片显示控制
     1. 显示默认占位图片
     2. "切换"按钮更换为指定图片
@@ -365,7 +365,7 @@ class ImageSwitcher(QWidget):
 
 
 Q34/简易画板
-class SimplePainter(QWidget):
+class SimplePainter(QSimWidget):
     """鼠标轨迹绘制
     1. 按下鼠标左键开始绘制
     2. 移动时绘制轨迹点
@@ -375,7 +375,7 @@ class SimplePainter(QWidget):
 
 
 Q35/进制转换器
-class BaseConverter(QWidget):
+class BaseConverter(QSimWidget):
     """二进制转换系统
     1. 十进制输入框
     2. "转换"按钮更新二进制标签
@@ -385,7 +385,7 @@ class BaseConverter(QWidget):
 
 
 Q36/语言切换器
-class LanguageSwitcher(QWidget):
+class LanguageSwitcher(QSimWidget):
     """多语言界面切换
     1. 下拉菜单（中文/English）
     2. 标签显示当前语言问候语
@@ -395,7 +395,7 @@ class LanguageSwitcher(QWidget):
 
 
 Q37/简易计算器
-class SimpleCalculator(QWidget):
+class SimpleCalculator(QSimWidget):
     """四则运算计算器
     1. 两个数字输入框
     2. 加减乘除按钮
@@ -405,7 +405,7 @@ class SimpleCalculator(QWidget):
 
 
 Q38/透明度计算器
-class OpacityControl(QWidget):
+class OpacityControl(QSimWidget):
     """窗口透明度调节
     1. 滑块控制窗口透明度（0-100%）
     2. 标签显示当前透明度
@@ -415,7 +415,7 @@ class OpacityControl(QWidget):
 
 
 Q39/文本统计器
-class TextAnalyzer(QWidget):
+class TextAnalyzer(QSimWidget):
     """实时文本分析
     1. 多行文本输入框
     2. 标签显示字符数和行数
@@ -425,7 +425,7 @@ class TextAnalyzer(QWidget):
 
 
 Q40/方向指示器
-class DirectionIndicator(QWidget):
+class DirectionIndicator(QSimWidget):
     """键盘方向指示
     1. 四个方向箭头按钮
     2. 按下方向键高亮对应按钮
@@ -438,7 +438,7 @@ class DirectionIndicator(QWidget):
 
 QUI/L3 动态状态 + 条件渲染   （20）
 Q41/计数器系统
-class CounterWidget(QWidget):
+class CounterWidget(QSimWidget):
     """实现带加减控制的计数器
     1. 显示当前数值（初始0）
     2. "+"按钮每次增加1
@@ -449,7 +449,7 @@ class CounterWidget(QWidget):
 
 
 Q42/动态列表管理
-class ListManagerWidget(QWidget):
+class ListManagerWidget(QSimWidget):
     """实现可增减的字符串列表
     1. 显示当前所有列表项（初始空）
     2. 输入框+Add按钮追加新项
@@ -460,7 +460,7 @@ class ListManagerWidget(QWidget):
 
 
 Q43/实时输入验证
-class EmailValidatorWidget(QWidget):
+class EmailValidatorWidget(QSimWidget):
     """邮箱格式实时验证系统
     1. 输入框内容实时校验
     2. 合法邮箱显示绿色边框
@@ -470,7 +470,7 @@ class EmailValidatorWidget(QWidget):
     """
 
 Q44/滑动条数值联动
-class SliderDisplayWidget(QWidget):
+class SliderDisplayWidget(QSimWidget):
     """带边界警示的滑动条
     1. 滑动条范围0-100
     2. 实时显示当前值
@@ -481,7 +481,7 @@ class SliderDisplayWidget(QWidget):
 
 
 Q45/进度控制系统
-class ProgressControlWidget(QWidget):
+class ProgressControlWidget(QSimWidget):
     """分段进度管理器
     1. 进度条显示0-100%
     2. "+10%"按钮每次增加进度
@@ -492,7 +492,7 @@ class ProgressControlWidget(QWidget):
 
 
 Q46/动态选项卡
-class TabGeneratorWidget(QWidget):
+class TabGeneratorWidget(QSimWidget):
     """可动态增删的选项卡系统
     1. 初始含1个默认标签页
     2. "New Tab"按钮创建新标签页
@@ -503,7 +503,7 @@ class TabGeneratorWidget(QWidget):
 
 
 Q47/实时颜色选择器
-class ColorPickerWidget(QWidget):
+class ColorPickerWidget(QSimWidget):
     """根据输入实时渲染颜色
     1. 输入框接受HEX格式（如#FF00FF）
     2. 实时验证格式合法性
@@ -514,7 +514,7 @@ class ColorPickerWidget(QWidget):
 
 
 Q48/动态输入框生成器
-class DynamicInputsWidget(QWidget):
+class DynamicInputsWidget(QSimWidget):
     """动态生成带统计的输入框组
     1. "Add Field"按钮创建新输入框
     2. 每个输入框可独立删除
@@ -525,7 +525,7 @@ class DynamicInputsWidget(QWidget):
 
 
 Q49/任务完成跟踪
-class TaskTrackerWidget(QWidget):
+class TaskTrackerWidget(QSimWidget):
     """带完成状态的任务列表
     1. 每个任务包含复选框+文本
     2. 选中复选框时文本添加删除线
@@ -536,7 +536,7 @@ class TaskTrackerWidget(QWidget):
 
 
 Q50/温度单位转换器
-class TempConverterWidget(QWidget):
+class TempConverterWidget(QSimWidget):
     """双模式温度实时转换
     1. 输入框可切换℃/℉单位
     2. 输入值实时转换到另一单位
@@ -547,7 +547,7 @@ class TempConverterWidget(QWidget):
 
 
 Q51/简易投票系统
-class VotingSystemWidget(QWidget):
+class VotingSystemWidget(QSimWidget):
     """动态选项投票统计
     1. 输入框+"Add Option"添加候选
     2. 每个选项显示投票数+投票按钮
@@ -558,7 +558,7 @@ class VotingSystemWidget(QWidget):
 
 
 Q52/文件上传预览
-class FilePreviewWidget(QWidget):
+class FilePreviewWidget(QSimWidget):
     """带限制的文件上传模拟
     1. 显示已选文件列表（最多5个）
     2. 超过数量时禁止添加+警告提示
@@ -569,7 +569,7 @@ class FilePreviewWidget(QWidget):
 
 
 Q53/实时波形绘制
-class WaveformWidget(QWidget):
+class WaveformWidget(QSimWidget):
     """可调参数的动态波形图
     1. 滑动条控制频率(1-50Hz)
     2. 实时绘制正弦波图形
@@ -580,7 +580,7 @@ class WaveformWidget(QWidget):
 
 
 Q54/分布表单系统
-class StepFormWidget(QWidget):
+class StepFormWidget(QSimWidget):
     """多步骤数据收集
     1. 分三步：基本信息→验证→完成
     2. 上一步/下一步按钮控制流程
@@ -591,7 +591,7 @@ class StepFormWidget(QWidget):
 
 
 Q55/可折叠面板组
-class CollapsiblePanelWidget(QWidget):
+class CollapsiblePanelWidget(QSimWidget):
     """限制展开数量的折叠面板
     1. 多个面板标题可点击展开/折叠
     2. 同时最多展开3个面板
@@ -602,7 +602,7 @@ class CollapsiblePanelWidget(QWidget):
 
 
 Q56/实时搜索建议
-class SearchSuggestWidget(QWidget):
+class SearchSuggestWidget(QSimWidget):
     """动态匹配的搜索建议
     1. 输入框内容变化时实时显示建议
     2. 建议列表最多显示5项
@@ -613,7 +613,7 @@ class SearchSuggestWidget(QWidget):
 
 
 Q57/密码强度检测
-class PasswordStrengthWidget(QWidget):
+class PasswordStrengthWidget(QSimWidget):
     """实时密码强度评估
     1. 输入时实时评估强度（弱/中/强）
     2. 强度等级对应颜色进度条
@@ -624,7 +624,7 @@ class PasswordStrengthWidget(QWidget):
 
 
 Q58/拖拽排序列表
-class DragSortListWidget(QWidget):
+class DragSortListWidget(QSimWidget):
     """支持拖拽排序的列表
     1. 列表项可拖拽改变顺序
     2. 拖拽时显示临时占位符
@@ -635,7 +635,7 @@ class DragSortListWidget(QWidget):
 
 
 Q59/树形节点管理器
-class TreeNodesWidget(QWidget):
+class TreeNodesWidget(QSimWidget):
     """可层级展开的树结构
     1. 节点可添加/删除子节点
     2. 右键菜单展开/折叠全部
@@ -646,7 +646,7 @@ class TreeNodesWidget(QWidget):
 
 
 Q60/实时数据监控
-class DataMonitorWidget(QWidget):
+class DataMonitorWidget(QSimWidget):
     """动态数据流可视化
     1. 每秒随机生成0-100数据点
     2. 折线图实时更新最近20个点

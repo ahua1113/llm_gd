@@ -412,8 +412,8 @@ class QSimTableWidget(QSimWidget):
         self._size_adjust_policy = None  # 策略调整相关属性
 
         # 自动创建带默认字体的表头
-        self.horizontal_header = QHeaderView("horizontal")
-        self.vertical_header = QHeaderView("vertical")
+        self.horizontal_header = QSimHeaderView("horizontal")
+        self.vertical_header = QSimHeaderView("vertical")
 
         self._rows = rows
         self._cols = cols
@@ -430,7 +430,7 @@ class QSimTableWidget(QSimWidget):
 
     def setItem(self, row, col, item):
         """核心方法：设置单元格内容"""
-        if not isinstance(item, QTableWidgetItem):
+        if not isinstance(item, QSimTableWidgetItem):
             raise TypeError("必须使用QTableWidgetItem类型")
 
         self._items[(row, col)] = item
@@ -443,7 +443,7 @@ class QSimTableWidget(QSimWidget):
     def setHorizontalHeaderLabels(self, labels):
         """设置水平表头"""
         for col_idx, text in enumerate(labels):
-            item = QTableWidgetItem(text)
+            item = QSimTableWidgetItem(text)
             self.setItem(-1, col_idx, item)  # 用-1表示表头行
         self.log_event("TABLE_HEADER_SET", "horizontal", labels)
 
@@ -948,5 +948,10 @@ def get_logs():
         return len(path_a) - len(path_b)
 
     # 获取排序后的日志并提取事件
+    # print("before:", QSimLayout._logs)
+
     sorted_entries = sorted(QSimLayout._logs, key=cmp_to_key(compare_entries))
+
+    # print("after:", sorted_entries)
+
     return [entry['event'] for entry in sorted_entries]
