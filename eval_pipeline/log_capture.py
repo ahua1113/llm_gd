@@ -35,7 +35,9 @@ class LogCaptureSystem:
 
         try:
             # 创建临时命名空间
+            """
             namespace = {
+                # 包含所有需要的组件类...
                 'QSimApplication': QSimApplication,
                 'QSimWidget': QSimWidget,
                 'QSimLabel': QSimLabel,
@@ -65,18 +67,86 @@ class LogCaptureSystem:
                 'QSimFont': QSimFont,
                 'QSimGridLayout': QSimGridLayout,
                 'Qt': Qt
-                # 包含所有需要的组件类...
             }
+            """
 
             # 重定向标准输出
             with io.StringIO() as buf:
                 with contextlib.redirect_stdout(buf):
-                    exec(code, namespace)
+                    exec(code)
 
                 # 执行应用程序事件循环
-                if 'app' in namespace:
-                    namespace['app'].exec_()
+                # if 'app' in namespace:
+                #    namespace['app'].exec_()
 
             yield self._logs
         finally:
             self._restore_imports()
+
+
+# Q1-doubao.py代码
+code = """
+from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSignal, QSimColor, QSimPixmap, QSimLabel,
+                          QSimHBoxLayout, QSimVBoxLayout, QSimWidget, QSimFontComboBox, QSimRadioButton, QSimPushButton,
+                          QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
+                          QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
+                          QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
+
+
+class LoginForm(QSimWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+        # 创建垂直布局
+        main_layout = QSimVBoxLayout()
+        main_layout.setAlignment(Qt.AlignCenter)
+
+        # 顶部标题
+        title_label = QSimLabel("Login")
+        main_layout.addWidget(title_label)
+
+        # 用户名输入框
+        username_input = QSimLineEdit()
+        username_input.setPlaceholderText("Enter username")
+        main_layout.addWidget(username_input)
+
+        # 密码输入框
+        password_input = QSimLineEdit()
+        password_input.setPlaceholderText("Enter password")
+        password_input.setEchoMode(QSimLineEdit.Password)
+        main_layout.addWidget(password_input)
+
+        # 水平排列的按钮
+        button_layout = QSimHBoxLayout()
+        cancel_button = QSimPushButton("Cancel")
+        submit_button = QSimPushButton("Submit")
+        button_layout.addWidget(cancel_button)
+        button_layout.addWidget(submit_button)
+        main_layout.addLayout(button_layout)
+
+        # 设置布局
+        self.setLayout(main_layout)
+
+        # 设置窗口大小
+        self.setFixedSize(300, 250)
+
+
+if __name__ == '__main__':
+    app = QSimApplication([])
+    login_form = LoginForm()
+    login_form.show()
+    app.exec()
+
+"""
+
+if __name__ == '__main__':
+    log_capture = LogCaptureSystem()
+
+    with log_capture.capture_logs(code) as captured_logs:
+        # 在此上下文内执行代码
+        pass
+
+    for captured_log in captured_logs:
+        print(captured_log)

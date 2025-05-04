@@ -1,0 +1,26 @@
+{'component': <__main__.ProfileCard object at 0x0000023AD3D53F70>, 'event': '[WIDGET_CREATED] ProfileCard', 'path': []}
+{'component': <qsim.widgets.QSimLabel object at 0x0000023AD3D53F10>, 'event': '[WIDGET_CREATED] QSimLabel', 'path': []}
+{'component': <qsim.widgets.QSimLabel object at 0x0000023AD3D53F10>, 'event': '[LABEL_CREATED] <__main__.ProfileCard object at 0x0000023AD3D53F70>', 'path': []}
+{'component': <qsim.widgets.QSimLabel object at 0x0000023AD3D53F10>, 'event': '[STYLESHEET_SET] background-color: gray;', 'path': []}
+{'component': <qsim.widgets.QSimLabel object at 0x0000023AD3D53F10>, 'event': '[SET_SIZE] 100, 100', 'path': []}
+{'component': <qsim.widgets.QSimLabel object at 0x0000023AD3D77250>, 'event': '[WIDGET_CREATED] QSimLabel', 'path': []}
+{'component': <qsim.widgets.QSimLabel object at 0x0000023AD3D77250>, 'event': '[LABEL_CREATED] 示例姓名', 'path': []}
+{'component': <qsim.utils.QSimFont object at 0x0000023AD3D772E0>, 'event': '[FONT_SIZE_SET] 14', 'path': []}
+{'component': <qsim.widgets.QSimLabel object at 0x0000023AD3D77250>, 'event': "[FONT_SET] {'family': 'Arial', 'point_size': 14, 'bold': False, 'italic': False, 'underline': False}", 'path': []}
+{'component': <qsim.widgets.QSimLabel object at 0x0000023AD3D77250>, 'event': '[ALIGNMENT_SET] Center', 'path': []}
+{'component': <qsim.widgets.QSimFrame object at 0x0000023AD3D77340>, 'event': '[WIDGET_CREATED] QSimFrame', 'path': []}
+{'component': <qsim.widgets.QSimFrame object at 0x0000023AD3D77340>, 'event': '[FRAME_CREATED] ', 'path': []}
+{'component': <qsim.widgets.QSimFrame object at 0x0000023AD3D77340>, 'event': '[FRAME_SHAPE_SET] HLine', 'path': []}
+{'component': <qsim.widgets.QSimFrame object at 0x0000023AD3D77340>, 'event': '[FRAME_SHADOW_SET] Sunken', 'path': []}
+{'component': <qsim.widgets.QSimFrame object at 0x0000023AD3D77340>, 'event': '[STYLESHEET_SET] color: black;', 'path': []}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x0000023AD3D77370>, 'event': '[LAYOUT_CREATED] QSimVBoxLayout', 'path': []}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x0000023AD3D77370>, 'event': '[ADD_WIDGET] QSimLabel, stretch(0)', 'path': [('VBox', 1)]}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x0000023AD3D77370>, 'event': '[ADD_WIDGET_ALIGNMENT] QSimLabel, Center', 'path': [('VBox', 1)]}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x0000023AD3D77370>, 'event': '[ADD_WIDGET] QSimLabel, stretch(0)', 'path': [('VBox', 3), ('VBox', 2), ('VBox', 2)]}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x0000023AD3D77370>, 'event': '[ADD_WIDGET] QSimLabel', 'path': [('VBox', 3), ('VBox', 2), ('VBox', 2)]}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x0000023AD3D77370>, 'event': '[ADD_WIDGET] QSimFrame, stretch(0)', 'path': [('VBox', 5), ('VBox', 4), ('VBox', 4), ('VBox', 2), ('VBox', 2)]}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x0000023AD3D77370>, 'event': '[ADD_WIDGET] QSimFrame', 'path': [('VBox', 5), ('VBox', 4), ('VBox', 4), ('VBox', 2), ('VBox', 2)]}
+{'component': <__main__.ProfileCard object at 0x0000023AD3D53F70>, 'event': '[SET_LAYOUT] QSimVBoxLayout', 'path': []}
+{'component': <__main__.ProfileCard object at 0x0000023AD3D53F70>, 'event': '[SET_SIZE] 200, 220', 'path': []}
+{'component': <__main__.ProfileCard object at 0x0000023AD3D53F70>, 'event': '[WINDOW_SHOW] ', 'path': []}
+{'component': None, 'event': '[APP_EXEC] ', 'path': []}

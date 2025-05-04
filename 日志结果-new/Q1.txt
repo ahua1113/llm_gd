@@ -1,0 +1,32 @@
+{'component': <__main__.LoginForm object at 0x000002B6C935EF70>, 'event': '[WIDGET_CREATED] LoginForm', 'path': []}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000002B6C935ED60>, 'event': '[LAYOUT_CREATED] QSimVBoxLayout', 'path': []}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000002B6C935ED60>, 'event': '[LAYOUT_ALIGNMENT_SET] AlignCenter', 'path': []}
+{'component': <qsim.widgets.QSimLabel object at 0x000002B6C935ED00>, 'event': '[WIDGET_CREATED] QSimLabel', 'path': []}
+{'component': <qsim.widgets.QSimLabel object at 0x000002B6C935ED00>, 'event': '[LABEL_CREATED] Login', 'path': []}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000002B6C935ED60>, 'event': '[ADD_WIDGET] QSimLabel, stretch(0)', 'path': [('VBox', 1)]}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000002B6C935ED60>, 'event': '[ADD_WIDGET] QSimLabel', 'path': [('VBox', 1)]}
+{'component': <qsim.widgets.QSimLineEdit object at 0x000002B6C935EC70>, 'event': '[WIDGET_CREATED] QSimLineEdit', 'path': []}
+{'component': <qsim.widgets.QSimLineEdit object at 0x000002B6C935EC70>, 'event': '[LINEEDIT_CREATED] ', 'path': []}
+{'component': <qsim.widgets.QSimLineEdit object at 0x000002B6C935EC70>, 'event': '[PLACEHOLDER_SET] Enter username', 'path': []}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000002B6C935ED60>, 'event': '[ADD_WIDGET] QSimLineEdit, stretch(0)', 'path': [('VBox', 3), ('VBox', 2), ('VBox', 2)]}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000002B6C935ED60>, 'event': '[ADD_WIDGET] QSimLineEdit', 'path': [('VBox', 3), ('VBox', 2), ('VBox', 2)]}
+{'component': <qsim.widgets.QSimLineEdit object at 0x000002B6C935EC40>, 'event': '[WIDGET_CREATED] QSimLineEdit', 'path': []}
+{'component': <qsim.widgets.QSimLineEdit object at 0x000002B6C935EC40>, 'event': '[LINEEDIT_CREATED] ', 'path': []}
+{'component': <qsim.widgets.QSimLineEdit object at 0x000002B6C935EC40>, 'event': '[PLACEHOLDER_SET] Enter password', 'path': []}
+{'component': <qsim.widgets.QSimLineEdit object at 0x000002B6C935EC40>, 'event': '[ECHO_MODE_SET] Password', 'path': []}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000002B6C935ED60>, 'event': '[ADD_WIDGET] QSimLineEdit, stretch(0)', 'path': [('VBox', 5), ('VBox', 4), ('VBox', 4), ('VBox', 2), ('VBox', 2)]}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000002B6C935ED60>, 'event': '[ADD_WIDGET] QSimLineEdit', 'path': [('VBox', 5), ('VBox', 4), ('VBox', 4), ('VBox', 2), ('VBox', 2)]}
+{'component': <qsim.layouts.QSimHBoxLayout object at 0x000002B6C935EC10>, 'event': '[LAYOUT_CREATED] QSimHBoxLayout', 'path': [('VBox', 6), ('VBox', 6), ('VBox', 4), ('VBox', 4), ('VBox', 2), ('VBox', 2)]}
+{'component': <qsim.widgets.QSimPushButton object at 0x000002B6C935EBB0>, 'event': '[WIDGET_CREATED] QSimPushButton', 'path': []}
+{'component': <qsim.widgets.QSimPushButton object at 0x000002B6C935EBB0>, 'event': '[BUTTON_CREATED] Cancel', 'path': []}
+{'component': <qsim.widgets.QSimPushButton object at 0x000002B6C935EB20>, 'event': '[WIDGET_CREATED] QSimPushButton', 'path': []}
+{'component': <qsim.widgets.QSimPushButton object at 0x000002B6C935EB20>, 'event': '[BUTTON_CREATED] Submit', 'path': []}
+{'component': <qsim.layouts.QSimHBoxLayout object at 0x000002B6C935EC10>, 'event': '[ADD_WIDGET] QSimPushButton, stretch(0)', 'path': [('HBox', 7), ('VBox', 6), ('VBox', 6), ('VBox', 4), ('VBox', 4), ('VBox', 2), ('VBox', 2)]}
+{'component': <qsim.layouts.QSimHBoxLayout object at 0x000002B6C935EC10>, 'event': '[ADD_WIDGET] QSimPushButton', 'path': [('HBox', 7), ('VBox', 6), ('VBox', 6), ('VBox', 4), ('VBox', 4), ('VBox', 2), ('VBox', 2)]}
+{'component': <qsim.layouts.QSimHBoxLayout object at 0x000002B6C935EC10>, 'event': '[ADD_WIDGET] QSimPushButton, stretch(0)', 'path': [('HBox', 9), ('HBox', 8), ('HBox', 8), ('VBox', 6), ('VBox', 6), ('VBox', 4), ('VBox', 4), ('VBox', 2), ('VBox', 2)]}
+{'component': <qsim.layouts.QSimHBoxLayout object at 0x000002B6C935EC10>, 'event': '[ADD_WIDGET] QSimPushButton', 'path': [('HBox', 9), ('HBox', 8), ('HBox', 8), ('VBox', 6), ('VBox', 6), ('VBox', 4), ('VBox', 4), ('VBox', 2), ('VBox', 2)]}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000002B6C935ED60>, 'event': '[ADD_LAYOUT] QSimHBoxLayout', 'path': [('VBox', 11), ('HBox', 10), ('HBox', 10), ('HBox', 8), ('HBox', 8), ('VBox', 6), ('VBox', 6), ('VBox', 4), ('VBox', 4), ('VBox', 2), ('VBox', 2)]}
+{'component': <__main__.LoginForm object at 0x000002B6C935EF70>, 'event': '[SET_LAYOUT] QSimVBoxLayout', 'path': []}
+{'component': <__main__.LoginForm object at 0x000002B6C935EF70>, 'event': '[SET_SIZE] 300, 250', 'path': []}
+{'component': <__main__.LoginForm object at 0x000002B6C935EF70>, 'event': '[WINDOW_SHOW] ', 'path': []}
+{'component': None, 'event': '[APP_EXEC] ', 'path': []}

@@ -1,11 +1,9 @@
 import os
 
-from output_log import writeLog
-from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSignal, QSimColor, QSimPixmap, QSimLabel,
-                          QSimHBoxLayout, QSimVBoxLayout, QSimWidget, QSimFontComboBox, QSimRadioButton, QSimPushButton,
-                          QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
-                          QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
-                          QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
+from qsim.widgets import (QSimApplication, QSimLabel,
+                          QSimHBoxLayout, QSimVBoxLayout, QSimWidget, QSimPushButton,
+                          QSimLineEdit, Qt)
+from write_new_log import writeLogNew
 
 
 class LoginForm(QSimWidget):
@@ -55,5 +53,4 @@ if __name__ == '__main__':
     app.exec()
 
     current_file = os.path.basename(__file__)
-    writeLog(current_file)
-
+    writeLogNew(current_file)

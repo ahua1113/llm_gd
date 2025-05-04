@@ -43,6 +43,6 @@ def compare_text_similarity(file_path1, file_path2):
         print(f"两个文本文件内容的余弦相似度为: {similarity}")
 
 
-file1 = '日志文本结果/Q1-ds.py.txt'
-file2 = '日志文本结果/Q1-yb.py.txt'
+file1 = '日志文本结果/Q1-.py.txt'
+file2 = '日志文本结果/Q1-.py.txt'
 compare_text_similarity(file1, file2)

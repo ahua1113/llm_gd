@@ -1,0 +1,29 @@
+{'component': <__main__.SettingsPanel object at 0x000001DF3E744F70>, 'event': '[WIDGET_CREATED] SettingsPanel', 'path': []}
+{'component': <qsim.widgets.QSimGroupBox object at 0x000001DF3E744F10>, 'event': '[WIDGET_CREATED] QSimGroupBox', 'path': []}
+{'component': <qsim.widgets.QSimGroupBox object at 0x000001DF3E744F10>, 'event': '[GROUPBOX_CREATED] Preferences', 'path': []}
+{'component': <qsim.widgets.QSimCheckBox object at 0x000001DF3E744610>, 'event': '[WIDGET_CREATED] QSimCheckBox', 'path': []}
+{'component': <qsim.widgets.QSimCheckBox object at 0x000001DF3E744610>, 'event': '[CHECKBOX_CREATED] Dark Mode', 'path': []}
+{'component': <qsim.widgets.QSimCheckBox object at 0x000001DF3E743820>, 'event': '[WIDGET_CREATED] QSimCheckBox', 'path': []}
+{'component': <qsim.widgets.QSimCheckBox object at 0x000001DF3E743820>, 'event': '[CHECKBOX_CREATED] Auto Update', 'path': []}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000001DF3E7427C0>, 'event': '[LAYOUT_CREATED] QSimVBoxLayout', 'path': []}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000001DF3E7427C0>, 'event': '[ADD_WIDGET] QSimCheckBox, stretch(0)', 'path': [('VBox', 1)]}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000001DF3E7427C0>, 'event': '[ADD_WIDGET] QSimCheckBox', 'path': [('VBox', 1)]}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000001DF3E7427C0>, 'event': '[ADD_WIDGET] QSimCheckBox, stretch(0)', 'path': [('VBox', 3), ('VBox', 2), ('VBox', 2)]}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000001DF3E7427C0>, 'event': '[ADD_WIDGET] QSimCheckBox', 'path': [('VBox', 3), ('VBox', 2), ('VBox', 2)]}
+{'component': <qsim.widgets.QSimGroupBox object at 0x000001DF3E744F10>, 'event': '[SET_LAYOUT] QSimVBoxLayout', 'path': []}
+{'component': <qsim.widgets.QSimComboBox object at 0x000001DF3E747400>, 'event': '[WIDGET_CREATED] QSimComboBox', 'path': []}
+{'component': <qsim.widgets.QSimComboBox object at 0x000001DF3E747400>, 'event': '[COMBOBOX_CREATED] ', 'path': []}
+{'component': <qsim.widgets.QSimComboBox object at 0x000001DF3E747400>, 'event': '[COMBOBOX_ITEM_ADDED] English', 'path': []}
+{'component': <qsim.widgets.QSimComboBox object at 0x000001DF3E747400>, 'event': '[COMBOBOX_INDEX_CHANGED] 0, English', 'path': []}
+{'component': None, 'event': '[SIGNAL_EMIT] Emit with args: (0,)', 'path': []}
+{'component': <qsim.widgets.QSimComboBox object at 0x000001DF3E747400>, 'event': '[COMBOBOX_ITEM_ADDED] 中文', 'path': []}
+{'component': <qsim.widgets.QSimComboBox object at 0x000001DF3E747400>, 'event': '[COMBOBOX_ITEMS_ADDED] 2', 'path': []}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000001DF3E747370>, 'event': '[LAYOUT_CREATED] QSimVBoxLayout', 'path': [('VBox', 4), ('VBox', 4), ('VBox', 2), ('VBox', 2)]}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000001DF3E747370>, 'event': '[ADD_WIDGET] QSimGroupBox, stretch(0)', 'path': [('VBox', 5), ('VBox', 4), ('VBox', 4), ('VBox', 2), ('VBox', 2)]}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000001DF3E747370>, 'event': '[ADD_WIDGET] QSimGroupBox', 'path': [('VBox', 5), ('VBox', 4), ('VBox', 4), ('VBox', 2), ('VBox', 2)]}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000001DF3E747370>, 'event': '[ADD_WIDGET] QSimComboBox, stretch(0)', 'path': [('VBox', 7), ('VBox', 6), ('VBox', 6), ('VBox', 4), ('VBox', 4), ('VBox', 2), ('VBox', 2)]}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000001DF3E747370>, 'event': '[ADD_WIDGET] QSimComboBox', 'path': [('VBox', 7), ('VBox', 6), ('VBox', 6), ('VBox', 4), ('VBox', 4), ('VBox', 2), ('VBox', 2)]}
+{'component': <__main__.SettingsPanel object at 0x000001DF3E744F70>, 'event': '[SET_LAYOUT] QSimVBoxLayout', 'path': []}
+{'component': <__main__.SettingsPanel object at 0x000001DF3E744F70>, 'event': '[SET_FIXED_WIDTH] 400', 'path': []}
+{'component': <__main__.SettingsPanel object at 0x000001DF3E744F70>, 'event': '[WINDOW_SHOW] ', 'path': []}
+{'component': None, 'event': '[APP_EXEC] ', 'path': []}

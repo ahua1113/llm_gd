@@ -17,6 +17,8 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
                           QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
 用if __name__ == '__main__':启动界面
 
+
+
 Q2/字体选择器
 class FontSelectorDemo(QSimWidget):
     """创建字体选择界面：
@@ -31,6 +33,8 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
                           QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
                           QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
                           QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
+用if __name__ == '__main__':启动界面
+
 
 Q3/信息展示卡片
 class ProfileCard(QSimWidget):
@@ -46,6 +50,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
                           QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
                           QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
                           QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
+用if __name__ == '__main__':启动界面
 
 
 Q4/设置面板
@@ -63,7 +68,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
                           QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
                           QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
                           QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
-
+用if __name__ == '__main__':启动界面
 
 Q5/图片查看器框架
 class ImageViewer(QSimWidget):
@@ -79,6 +84,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
                           QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
                           QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
                           QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
+用if __name__ == '__main__':启动界面
 
 
 Q6/数据表格展示
@@ -95,6 +101,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
                           QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
                           QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
                           QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
+用if __name__ == '__main__':启动界面
 
 
 Q7/进度指示器
@@ -111,6 +118,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
                           QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
                           QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
                           QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
+用if __name__ == '__main__':启动界面
 
 
 Q8/选项卡容器
@@ -127,6 +135,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
                           QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
                           QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
                           QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
+用if __name__ == '__main__':启动界面
 
 
 Q9/工具按钮栏
@@ -143,6 +152,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
                           QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
                           QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
                           QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
+用if __name__ == '__main__':启动界面
 
 
 Q10/消息通知框
@@ -159,6 +169,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
                           QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
                           QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
                           QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
+用if __name__ == '__main__':启动界面
 
 
 Q11/搜索过滤器面板
@@ -176,6 +187,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
                           QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
                           QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
                           QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
+用if __name__ == '__main__':启动界面
 
 
 Q12/数值输入面板
@@ -192,6 +204,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
                           QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
                           QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
                           QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
+用if __name__ == '__main__':启动界面
 
 
 Q13/单选按钮组
@@ -208,6 +221,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
                           QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
                           QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
                           QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
+用if __name__ == '__main__':启动界面
 
 
 Q14/颜色选择器布局
@@ -224,6 +238,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
                           QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
                           QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
                           QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
+用if __name__ == '__main__':启动界面
 
 
 Q15/列表选择器
@@ -240,6 +255,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
                           QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
                           QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
                           QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
+用if __name__ == '__main__':启动界面
 
 
 Q16/日历组件布局
@@ -256,6 +272,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
                           QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
                           QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
                           QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
+用if __name__ == '__main__':启动界面
 
 
 Q17/滚动区域示例
@@ -272,6 +289,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
                           QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
                           QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
                           QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
+用if __name__ == '__main__':启动界面
 
 
 Q18/分屏界面布局
@@ -288,6 +306,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
                           QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
                           QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
                           QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
+用if __name__ == '__main__':启动界面
 
 
 Q19/数字仪表盘
@@ -304,6 +323,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
                           QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
                           QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
                           QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
+用if __name__ == '__main__':启动界面
 
 
 Q20/多格式输入表单
@@ -320,6 +340,7 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
                           QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
                           QSimTableWidgetItem, QSimSpinBox, QSimSlider, QSimFrame, QSimProgressBar, QSimStatusBar,
                           QSimHeaderView, QSimLineEdit, Qt, QSimFont, QSimGridLayout)
+用if __name__ == '__main__':启动界面
 
 
 

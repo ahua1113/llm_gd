@@ -1,0 +1,22 @@
+{'component': <__main__.FontSelectorDemo object at 0x000001FEF5BD4F70>, 'event': '[WIDGET_CREATED] FontSelectorDemo', 'path': []}
+{'component': <qsim.widgets.QSimLabel object at 0x000001FEF5BD4F10>, 'event': '[WIDGET_CREATED] QSimLabel', 'path': []}
+{'component': <qsim.widgets.QSimLabel object at 0x000001FEF5BD4F10>, 'event': '[LABEL_CREATED] 选择字体：', 'path': []}
+{'component': <qsim.widgets.QSimLabel object at 0x000001FEF5BD4F10>, 'event': '[ALIGNMENT_SET] Left', 'path': []}
+{'component': <qsim.utils.QSimFont object at 0x000001FEF5BF7430>, 'event': '[FONT_SIZE_SET] 12', 'path': []}
+{'component': <qsim.widgets.QSimLabel object at 0x000001FEF5BD4F10>, 'event': "[FONT_SET] {'family': 'Arial', 'point_size': 12, 'bold': False, 'italic': False, 'underline': False}", 'path': []}
+{'component': <qsim.widgets.QSimFontComboBox object at 0x000001FEF5BF7490>, 'event': '[WIDGET_CREATED] QSimFontComboBox', 'path': []}
+{'component': <qsim.widgets.QSimFontComboBox object at 0x000001FEF5BF7490>, 'event': '[FONTCOMBOBOX_CREATED] ', 'path': []}
+{'component': None, 'event': '[SIGNAL_CONNECT] Connected to updateFont', 'path': []}
+{'component': <qsim.widgets.QSimLabel object at 0x000001FEF5BF7580>, 'event': '[WIDGET_CREATED] QSimLabel', 'path': []}
+{'component': <qsim.widgets.QSimLabel object at 0x000001FEF5BF7580>, 'event': '[LABEL_CREATED] Hello Qt!', 'path': []}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000001FEF5BF7640>, 'event': '[LAYOUT_CREATED] QSimVBoxLayout', 'path': []}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000001FEF5BF7640>, 'event': '[ADD_WIDGET] QSimLabel, stretch(0)', 'path': [('VBox', 1)]}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000001FEF5BF7640>, 'event': '[ADD_WIDGET] QSimLabel', 'path': [('VBox', 1)]}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000001FEF5BF7640>, 'event': '[ADD_WIDGET] QSimFontComboBox, stretch(0)', 'path': [('VBox', 3), ('VBox', 2), ('VBox', 2)]}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000001FEF5BF7640>, 'event': '[ADD_WIDGET] QSimFontComboBox', 'path': [('VBox', 3), ('VBox', 2), ('VBox', 2)]}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000001FEF5BF7640>, 'event': '[ADD_WIDGET] QSimLabel, stretch(0)', 'path': [('VBox', 5), ('VBox', 4), ('VBox', 4), ('VBox', 2), ('VBox', 2)]}
+{'component': <qsim.layouts.QSimVBoxLayout object at 0x000001FEF5BF7640>, 'event': '[ADD_WIDGET] QSimLabel', 'path': [('VBox', 5), ('VBox', 4), ('VBox', 4), ('VBox', 2), ('VBox', 2)]}
+{'component': <__main__.FontSelectorDemo object at 0x000001FEF5BD4F70>, 'event': '[SET_LAYOUT] QSimVBoxLayout', 'path': []}
+{'component': <__main__.FontSelectorDemo object at 0x000001FEF5BD4F70>, 'event': '[SET_SIZE] 300, 150', 'path': []}
+{'component': <__main__.FontSelectorDemo object at 0x000001FEF5BD4F70>, 'event': '[WINDOW_SHOW] ', 'path': []}
+{'component': None, 'event': '[APP_EXEC] ', 'path': []}
