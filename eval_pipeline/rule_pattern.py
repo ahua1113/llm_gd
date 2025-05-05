@@ -7,10 +7,11 @@ Q1_PATTERN = {
     "1": r"'event':\s*'\[LABEL_CREATED\] Login'.*",
     "2": r"'event':\s*'\[PLACEHOLDER_SET\] Enter username'.*",
     "3": r"'event':\s*'\[PLACEHOLDER_SET\] Enter password'.*",
-    "4": r"'event':\s*'\[BUTTON_CREATED\] Cancel'.*",
-    "5": r"'event':\s*'\[BUTTON_CREATED\] Submit'.*",
-    "6": r"'event':\s*'\[LAYOUT_ALIGNMENT_SET\] AlignCenter'.*",
-    "7": r"'event':\s*'\[SET_SIZE\] 300, 250'.*"
+    "4": r"'event':\s*'\[ECHO_MODE_SET\] password'.*",
+    "5": r"'event':\s*'\[BUTTON_CREATED\] Cancel'.*",
+    "6": r"'event':\s*'\[BUTTON_CREATED\] Submit'.*",
+    "7": r"'event':\s*'\[LAYOUT_ALIGNMENT_SET\] AlignCenter'.*",
+    "8": r"'event':\s*'\[SET_SIZE\] 300, 250'.*"
 
 }
 
@@ -111,8 +112,9 @@ Q10_PATTERN = {
 Rule = List[dict]
 
 
-def validate_log(text):
-    patterns = Q4_PATTERN
+# 传入日志内容，返回匹配成功的比率
+def validate_log(text: str):
+    patterns = Q1_PATTERN
 
     results = {key: False for key in patterns}
 
