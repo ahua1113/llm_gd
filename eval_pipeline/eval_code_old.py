@@ -4,7 +4,7 @@ import io
 import evalplus
 from evalplus.evaluate import evaluate
 
-from eval_pipeline.call_api import get_problem, doubao_code
+from eval_pipeline.call_api import get_problem, doubao_code, tongyi_code, deepseek_code
 from eval_pipeline.rule_pattern import validate_log
 import contextlib
 import io
@@ -169,26 +169,44 @@ if __name__ == '__main__':
     problems = get_problem()
     problem = problems[1]
 
-    # 调用doubao api 生成代码
-    # q1_code_res_db = doubao_code(problem)
-    # 处理代码，去除多余的空格和换行符
-    # q1_code_res_db = q1_code_res_db.strip()
+    # 调用doubao api 生成代码，生成5份代码
+    q1_code_res_db = doubao_code(problem, 5)
 
-    # print(q1_code_res_db)
+    # 调用deepseek api 生成代码
+    # q1_code_res_db = deepseek_code(problem, 5)
+
+    # 调用通义 api 生成代码
+    # q1_code_res_db = tongyi_code(problem, 5)
+
+    # 输出代码结果
+    for i in range(len(q1_code_res_db)):
+        print(q1_code_res_db[i])
 
     # 捕获日志
     log_capture = LogCaptureSystem()
 
-    with log_capture.capture_logs(code) as logs:
-        # 在此上下文内执行代码
-        pass
+    # 存储日志结果
+    log_doubao = []
 
-    # 打印捕获的日志
-    for log in logs:
-        print(log)
+    # 每一份代码都要捕获日志
+    for i in range(len(q1_code_res_db)):
+        with log_capture.capture_logs(q1_code_res_db[i]) as logs:
+            print(f"Captured logs for code {i + 1}: {logs}")
+            log_doubao.append(logs)
 
-    # 日志结果转为字符串
-    logs_str = str(logs)
-    # 结果评估
-    # res = validate_log(logs_str)
-    # print(res)
+    # 输出日志结果
+    for i in range(len(log_doubao)):
+        print(f"日志{i + 1}: {log_doubao[i]}")
+
+    # 评估正确性
+    res_code = []
+    for i in range(len(log_doubao)):
+        # 对每一份代码进行正确性评估，传入字符串
+        res_code.append(validate_log(str(log_doubao[i])))
+
+    # 输出评估结果
+    for i in range(len(res_code)):
+        print(f"代码{i + 1}: {res_code[i]}")
+
+    
+

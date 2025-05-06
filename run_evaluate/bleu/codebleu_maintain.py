@@ -49,6 +49,7 @@ def compute_codebleu(reference, candidate):
     return 0.5 * code_bleu + 0.5 * ast_bleu
 
 
+'''
 # 示例用法
 reference_code = """
 def factorial(n):
@@ -67,3 +68,4 @@ def fact(n):
 """
 
 print(f"CodeBLEU 分数：{compute_codebleu(reference_code, candidate_code):.4f}")
+'''

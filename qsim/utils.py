@@ -2,14 +2,25 @@ from qsim.layouts import QSimLayout
 
 
 class QSimFont:
-    def __init__(self):
-        self._properties = {
-            'family': 'Arial',
-            'point_size': 12,
-            'bold': False,
-            'italic': False,
-            'underline': False
-        }
+    def __init__(self, family=None, size=None, style=None, bold=False, italic=False):
+        self.family = family
+        self.size = size
+        self.bold = bold
+        self.italic = italic
+
+        if family is None:
+            self._properties = {
+                'family': 'Arial',
+                'point_size': 12,
+                'bold': False,
+                'italic': False,
+                'underline': False
+            }
+        else:
+            self._properties = {
+                'family': family,
+                'point_size': size
+            }
 
     def setItalic(self, enable):
         self._properties['italic'] = enable

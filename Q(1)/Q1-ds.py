@@ -1,4 +1,3 @@
-# ```python
 from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSignal, QSimColor, QSimPixmap, QSimLabel,
                           QSimHBoxLayout, QSimVBoxLayout, QSimWidget, QSimFontComboBox, QSimRadioButton, QSimPushButton,
                           QSimTabWidget, QSimCheckBox, QSimGroupBox, QSimListWidgetItem, QSimComboBox, QSimTableWidget,
@@ -9,20 +8,20 @@ from qsim.widgets import (QSimLayout, QSimApplication, QSimListWidget, QSimSigna
 class LoginForm(QSimWidget):
     def __init__(self):
         super().__init__()
-        self.setFixedSize(300, 250)
+        self.setWindowTitle("Login")
+        self.resize(300, 250)
 
         main_layout = QSimVBoxLayout()
         main_layout.setAlignment(Qt.AlignCenter)
 
-        title = QSimLabel("Login")
-        title.setAlignment(Qt.AlignCenter)
+        title_label = QSimLabel("Login")
+        title_label.setAlignment(Qt.AlignCenter)
 
         username_input = QSimLineEdit()
         username_input.setPlaceholderText("Enter username")
 
         password_input = QSimLineEdit()
         password_input.setPlaceholderText("Enter password")
-        password_input.setEchoMode(QSimLineEdit.Password)
 
         button_layout = QSimHBoxLayout()
         cancel_button = QSimPushButton("Cancel")
@@ -30,7 +29,7 @@ class LoginForm(QSimWidget):
         button_layout.addWidget(cancel_button)
         button_layout.addWidget(submit_button)
 
-        main_layout.addWidget(title)
+        main_layout.addWidget(title_label)
         main_layout.addWidget(username_input)
         main_layout.addWidget(password_input)
         main_layout.addLayout(button_layout)
@@ -43,4 +42,3 @@ if __name__ == '__main__':
     window = LoginForm()
     window.show()
     app.exec_()
-# ```

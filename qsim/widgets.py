@@ -11,6 +11,8 @@ class QSimWidget:
     def __init__(self, parent=None):
         self._geometry = (0, 0, 100, 100)  # (x, y, width, height)
 
+        self._font = QSimFont()  # 所有控件基类添加字体属性
+
         self._parent = parent
         self._properties = {}
         self._layout = None
@@ -47,10 +49,24 @@ class QSimWidget:
         self._properties['size'] = (w, h)
         self.log_event("SET_SIZE", w, h)
 
+    def resize(self, w, h):
+        self._properties['size'] = (w, h)
+        self.log_event("SET_SIZE", w, h)
+
     def setLayout(self, layout):
         self._layout = layout
         self.log_event("SET_LAYOUT", layout.__class__.__name__)
         layout._parent = self
+
+    def setFont(self, font):
+        """ 设置字体 (兼容Qt接口) """
+        if isinstance(font, QSimFont):
+            self._font = font
+            self.log_event("SET_FONT",
+                         f"{font.family}-{font.size}-{font.bold}-{font.italic}")
+
+    def font(self):
+        return self._font
 
     def log_event(self, event_type, *args):
         formatted_args = [str(arg) for arg in args]
@@ -140,10 +156,14 @@ class QSimLineEdit(QSimWidget):
     Password = 2
     Pin = 3
 
-    def __init__(self):
+    def __init__(self, text=None):
         super().__init__()
+        self._alignment = None
         self._echo_mode = self.Normal
-        self.log_event("LINEEDIT_CREATED")
+
+        self._is_read_only = False  # 新增属性
+
+        self.log_event("LINEEDIT_CREATED", text)
 
     def setPlaceholderText(self, text):
         self.log_event("PLACEHOLDER_SET", text)
@@ -152,6 +172,21 @@ class QSimLineEdit(QSimWidget):
         self._echo_mode = mode
         mode_names = {0: "Normal", 1: "NoEcho", 2: "Password", 3: "Pin"}
         self.log_event("ECHO_MODE_SET", mode_names.get(mode, "Unknown"))
+
+    def setReadOnly(self, read_only):
+        """ 设置只读状态 """
+        self._is_read_only = bool(read_only)
+        # 记录状态变更（True/False）
+        self.log_event("SET_READONLY", str(self._is_read_only))
+
+    def isReadOnly(self):
+        """ 获取只读状态 """
+        return self._is_read_only
+
+    def setAlignment(self, align_flag):
+        """ 设置文本对齐方式 """
+        self._alignment = align_flag
+        self.log_event("SET_ALIGNMENT", self._alignment)
 
 
 '''—————————————————————————————————————————————分割线———————————————————————————————————————————————————————————————'''

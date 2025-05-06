@@ -1,90 +1,111 @@
-import os
-
 from openai import OpenAI
 from volcenginesdkarkruntime import Ark
 
+# 通用提示词模板
+PROMPT_TEMPLATE = f"""
+请严格使用qsim.widgets组件库构建界面，要求：
+1. 类定义必须继承自QSimWidget
+2. 包含if __name__ == '__main__'启动代码
+3. 回复中只包含代码，不要有多余的文字，生成 {{generate_count}} 份独立的代码，每份代码之间用分隔符 "---" 分隔。
+4. 最后循环启动，不需要退出返回码即用app.exec_()而非sys.exit(app.exec_())
+5. 所有代码中使用的组件类都要按问题中的要求导入
+具体需求：{{problem}}
+"""
 
-# 豆包模型
-def doubao_code(problem: str) -> str:
-    client = Ark(api_key="fee2d098-39e0-4598-97e5-ae67e4fd0143", base_url="https://ark.cn-beijing.volces.com/api/v3",)
 
-    response = client.chat.completions.create(
-        model="doubao-1-5-pro-32k-250115",
-        messages=[{
+# 豆包模型，传入问题文本和生成次数，一次调用模型生成多份代码
+def doubao_code(problem: str, generate_count: int = 1) -> list:
+    client = Ark(api_key="fee2d098-39e0-4598-97e5-ae67e4fd0143", base_url="https://ark.cn-beijing.volces.com/api/v3", )
+    messages = [
+        {
             "role": "user",
-            "content": f"""
-            请严格使用qsim.widgets组件库构建界面，要求：
-            1. 类定义必须继承自QSimWidget
-            2. 包含if __name__ == '__main__'启动代码
-            3. 回复中只包含代码，不要有多余的文字
-            4. 最后循环启动，不需要退出返回码即用app.exec_()而非sys.exit(app.exec_())
-            具体需求：{problem}
-            """}],
-        temperature=0.1,
-        max_tokens=1500
-    )
+            "content": PROMPT_TEMPLATE.format(generate_count=generate_count, problem=problem)
+        }
+    ]
+    try:
+        response = client.chat.completions.create(
+            model="doubao-1-5-pro-32k-250115",
+            messages=messages,
+            temperature=0.1,
+            max_tokens=1500 * generate_count  # 适当增加最大令牌数
+        )
+        res = response.choices[0].message.content
+        # 使用分隔符分割多份代码
+        code_list = res.split('---')
 
-    # 去掉第一行和最后一行（多余的文字或符号）
-    res = response.choices[0].message.content
-    # res = res.split('\n', 1)[1].rsplit('\n', 1)[0]
+        # 去除多余的空格和换行符，并去每份代码的第一行和最后一行
+        for i in range(len(code_list)):
+            code_list[i] = code_list[i].strip()
+            code_list[i] = code_list[i].split('\n', 1)[1].rsplit('\n', 1)[0]
 
-    return res
+        return code_list
+    except Exception as e:
+        print(f"调用豆包模型 API 出错: {e}")
+        return []
 
 
 # deepseek模型
-def deepseek_code(problem: str) -> str:
+def deepseek_code(problem: str, generate_count: int = 1) -> list:
     client = OpenAI(api_key="sk-62fc293a798e4a6d80f9696d6de0ef35", base_url="https://api.deepseek.com")
-
-    # 代码末尾循环启动，不需要退出返回码
-    response = client.chat.completions.create(
-        model="deepseek-chat",
-        messages=[{
+    messages = [
+        {
             "role": "user",
-            "content": f"""
-            请严格使用qsim.widgets组件库构建界面，要求：
-            1. 类定义必须继承自QSimWidget
-            2. 包含if __name__ == '__main__'启动代码
-            3. 回复中只包含代码，不要有多余的文字
-            4. 最后循环启动，不需要退出返回码即用app.exec_()而非sys.exit(app.exec_())
-            具体需求：{problem}
-            """}],
-        temperature=0.1,
-        max_tokens=1500
-    )
+            "content": PROMPT_TEMPLATE.format(generate_count=generate_count, problem=problem)
+        }
+    ]
+    try:
+        response = client.chat.completions.create(
+            model="deepseek-chat",
+            messages=messages,
+            temperature=0.1,
+            max_tokens=1500 * generate_count  # 适当增加最大令牌数
+        )
+        res = response.choices[0].message.content
+        # 使用分隔符分割多份代码
+        code_list = res.split('---')
 
-    res = response.choices[0].message.content
+        # 去除多余的空格和换行符，并去每份代码的第一行和最后一行
+        for i in range(len(code_list)):
+            code_list[i] = code_list[i].strip()
+            code_list[i] = code_list[i].split('\n', 1)[1].rsplit('\n', 1)[0]
 
-    # 去掉第一行和最后一行（多余的文字或符号）
-    res = res.split('\n', 1)[1].rsplit('\n', 1)[0]
-
-    return res
+        return code_list
+    except Exception as e:
+        print(f"调用 DeepSeek 模型 API 出错: {e}")
+        return []
 
 
 # 通义千问模型
-def tongyi_code(problem: str) -> str:
-    client = OpenAI(api_key="sk-6ba774ea4bf7413c807028e765123481", base_url="https://dashscope.aliyuncs.com/compatible-mode/v1")
-
-    # 代码末尾循环启动，不需要退出返回码
-    response = client.chat.completions.create(
-        model="qwq-plus",
-        messages=[{
+def tongyi_code(problem: str, generate_count: int = 1) -> list:
+    client = OpenAI(api_key="sk-6ba774ea4bf7413c807028e765123481",
+                    base_url="https://dashscope.aliyuncs.com/compatible-mode/v1")
+    messages = [
+        {
             "role": "user",
-            "content": f"""
-            请严格使用qsim.widgets组件库构建界面，要求：
-            1. 类定义必须继承自QSimWidget
-            2. 包含if __name__ == '__main__'启动代码
-            3. 回复中只包含代码，不要有多余的文字
-            4. 最后循环启动，不需要退出返回码即用app.exec_()而非sys.exit(app.exec_())
-            具体需求：{problem}
-            """}],
-        temperature=0.1,
-        max_tokens=1500
-    )
+            "content": PROMPT_TEMPLATE.format(generate_count=generate_count, problem=problem)
+        }
+    ]
+    try:
+        response = client.chat.completions.create(
+            model="qwen-plus",
+            messages=messages,
+            temperature=0.1,
+            max_tokens=1500 * generate_count  # 适当增加最大令牌数
+        )
+        res = response.choices[0].message.content
+        # 使用分隔符分割多份代码
+        code_list = res.split('---')
 
-    res = response.choices[0].message.content
+        # 去除多余的空格和换行符，并去每份代码的第一行和最后一行
+        for i in range(len(code_list)):
+            code_list[i] = code_list[i].strip()
+            code_list[i] = code_list[i].split('\n', 1)[1].rsplit('\n', 1)[0]
 
-    return res
-    
+        return code_list
+    except Exception as e:
+        print(f"调用通义千问模型 API 出错: {e}")
+        return []
+
 
 # 取问题集
 def get_problem():

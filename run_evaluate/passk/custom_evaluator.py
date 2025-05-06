@@ -19,7 +19,7 @@ pattern_mapping = {
 
 
 # pass@k评估函数，传入问题id和日志字符串，返回匹配程度
-def pass_at_k(problem_id, logs_str):
+def isPass(problem_id, logs_str):
     """评估日志字符串在指定问题上的匹配程度"""
     patterns = pattern_mapping.get(problem_id, {})
     if not patterns:
